@@ -106,159 +106,161 @@ int ModeloViagem::ConsultaCusto(Codigo &CodigoUsuario, Codigo &CodigoViagem)
   results.clear();
   this->Executar();
 
-  int totalLodgingCost = 0;
+  int CustoTotalHospedagem = 0;
   if (status == SQLITE_OK && !results.empty())
   {
     for (size_t i = 0; i < results.size(); i++)
     {
-      int dailyRate = stoi(results[i]["dailyRate"]);
-      Date arrival = Date(results[i]["arrival"]);
-      Date departure = Date(results[i]["departure"]);
-      int days = Date::calculateDateRange(arrival.getValue(), departure.getValue());
-      totalLodgingCost += dailyRate * days;
+      int PrecoDiaria = stoi(results[i]["precodiaria"]);
+      Data chegada = Data(results[i]["chegada"]);
+      Data partida = Data(results[i]["partida"]);
+      int dias = Data::CalcularAlcanceDatas(chegada.getValor(), partida.getValor());
+      CustoTotalHospedagem += PrecoDiaria * dias;
     }
   }
 
-  return totalActivityCost + totalLodgingCost;
+  return CustoTotalAtividade + CustoTotalHospedagem;
 }
 
-vector<Destination> TravelModel::listDestinations(Code &userCode, Code &travelCode)
+vector<Destino> ModeloViagem::ListaDestinos(Codigo &CodigoUsuario, Codigo &CodigoViagem)
 {
-  sqlCommand = "SELECT accountCode FROM travel WHERE code = '" + travelCode.getValue() + "';";
+  ComandoSQL = "SELECT codigoconta FROM viagem WHERE codigo = '" + CodigoViagem.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  if (results.empty() || results[0]["accountCode"] != userCode.getValue())
+  if (results.empty() || results[0]["codigoconta"] != CodigoUsuario.getValor())
   {
-    throw invalid_argument("Viagem inexistente ou pertencente a outra conta");
+    throw invalid_argument("Viagem não existente ou pertencente a outra conta");
   }
 
-  sqlCommand = "SELECT * FROM destination WHERE travelCode = '" + travelCode.getValue() + "';";
+  ComandoSQL = "SELECT * FROM destino WHERE codigoviagem = '" + CodigoViagem.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
   if (status != SQLITE_OK)
   {
     throw invalid_argument("Erro na listagem de destinos");
   }
 
-  vector<Destination> destinations;
+  vector<Destino> destinos;
   for (size_t i = 0; i < results.size(); i++)
   {
-    Code code = Code(results[i]["code"]);
-    Name name = Name(results[i]["name"]);
-    Date arrival = Date(results[i]["arrival"]);
-    Date departure = Date(results[i]["departure"]);
-    Rating rating = Rating(results[i]["rating"]);
-    Destination destination = Destination(code, name, arrival, departure, rating);
-    destinations.push_back(destination);
+    Codigo codigo = Codigo(results[i]["codigo"]);
+    Nome nome = Nome(results[i]["nome"]);
+    Data chegada = Data(results[i]["chegada"]);
+    Data partida = Data(results[i]["partida"]);
+    Avaliacao avaliacao = Avaliacao(results[i]["avaliacao"]);
+    Destino destino = Destino(codigo, nome, chegada, partida, avaliacao);
+    destinos.push_back(destino);
   }
-  return destinations;
+  return destinos;
 }
 
-Destination TravelModel::consultDestination(Code &userCode, Code &destinationCode)
+Destino ModeloViagem::ConsultaDestino(Codigo &CodigoUsuario, Codigo &CodigoDestino)
 {
-  sqlCommand = "SELECT accountCode FROM destination WHERE code = '" + destinationCode.getValue() + "';";
+  ComandoSQL = "SELECT codigoconta FROM destino WHERE codigo = '" + CodigoDestino.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  if (results.empty() || results[0]["accountCode"] != userCode.getValue())
+  if (results.empty() || results[0]["codigoconta"] != CodigoUsuario.getValor())
   {
-    throw invalid_argument("Viagem inexistente ou pertencente a outra conta");
+    throw invalid_argument("Viagem não existente ou pertencente a outra conta");
   }
 
-  sqlCommand = "SELECT * FROM destination WHERE code = '" + destinationCode.getValue() + "';";
+  ComandoSQL = "SELECT * FROM destino WHERE codigo = '" + CodigoDestino.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
   if (results.empty())
   {
     throw invalid_argument("Destino não encontrado");
   }
 
-  Code code = Code(results[0]["code"]);
-  Name name = Name(results[0]["name"]);
-  Date arrival = Date(results[0]["arrival"]);
-  Date departure = Date(results[0]["departure"]);
-  Rating rating = Rating(results[0]["rating"]);
-  Destination destination = Destination(code, name, arrival, departure, rating);
+  Codigo codigo = Codigo(results[0]["codigo"]);
+  Nome nome = Nome(results[0]["nome"]);
+  Data chegada = Data(results[0]["chegada"]);
+  Data partida = Data(results[0]["partida"]);
+  Avaliacao avaliacao = Avaliacao(results[0]["avaliacao"]);
+  Destino destino = Destino(codigo, nome, chegada, partida, avaliacao);
 
-  return destination;
+  return destino;
 }
 
-vector<Lodging> TravelModel::listLodgings(Code &userCode, Code &destinationCode)
+vector<Hospedagem> ModeloViagem::ListaHospedagems(Codigo &CodigoUsuario, Codigo &CodigoDestino)
 {
-  sqlCommand = "SELECT travelCode FROM destination WHERE code = '" + destinationCode.getValue() + "';";
+  ComandoSQL = "SELECT codigoviagem FROM destino WHERE codigo = '" + CodigoDestino.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  sqlCommand = "SELECT accountCode from travel WHERE code = '" + results[0]["travelCode"] + "';";
+  ComandoSQL = "SELECT codigoconta from viagem WHERE codigo = '" + results[0]["codigoviagem"] + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  if (results.empty() || results[0]["accountCode"] != userCode.getValue())
+  if (results.empty() || results[0]["codigoconta"] != CodigoUsuario.getValor())
   {
-    throw invalid_argument("Informações sobre viagem inexistente ou pertencente a outra conta");
+    throw invalid_argument("Informações sobre viagem não existem ou pertencem a outra conta");
   }
 
-  sqlCommand = "SELECT * FROM lodging WHERE destinationCode = '" + destinationCode.getValue() + "';";
+  ComandoSQL = "SELECT * FROM hospedagem WHERE codigodestino = '" + CodigoDestino.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
   if (status != SQLITE_OK)
   {
-    throw invalid_argument("Erro na leitura das hospedagens");
+    throw invalid_argument("Erro leitura das hospedagens");
   }
 
-  vector<Lodging> lodgings;
+  vector<Hospedagem> hospedagens;
   for (size_t i = 0; i < results.size(); i++)
   {
-    Code code = Code(results[i]["code"]);
-    Name name = Name(results[i]["name"]);
-    Money dailyRate = Money(results[i]["dailyRate"]);
-    Rating rating = Rating(results[i]["rating"]);
-    Lodging lodging = Lodging(code, name, dailyRate, rating);
-    lodgings.push_back(lodging);
+
+    Codigo codigo = Codigo(results[i]["codigo"]);
+    Nome nome = Nome(results[i]["nome"]);
+    Dinheiro precodiaria = Dinheiro(results[i]["precodiaria"]);
+    Avaliacao avaliacao = Avaliacao(results[i]["avaliacao"]);
+    Hospedagem hospedagem = Hospedagem(codigo, nome, precodiaria, avaliacao);
+    hospedagens.push_back(hospedagem);
+
   }
-  return lodgings;
+  return hospedagens;
 }
 
-vector<Activity> TravelModel::listActivities(Code &userCode, Code &destinationCode)
+vector<Atividade> ModeloViagem::ListaAtividades(Codigo &CodigoUsuario, Codigo &CodigoDestino)
 {
-  sqlCommand = "SELECT travelCode FROM destination WHERE code = '" + destinationCode.getValue() + "';";
+  ComandoSQL = "SELECT codigoviagem FROM destino WHERE codigo = '" + CodigoDestino.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  sqlCommand = "SELECT accountCode from travel WHERE code = '" + results[0]["travelCode"] + "';";
+  ComandoSQL = "SELECT codigoconta from viagem WHERE codigo = '" + results[0]["codigoviagem"] + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  if (results.empty() || results[0]["accountCode"] != userCode.getValue())
+  if (results.empty() || results[0]["codigoconta"] != CodigoUsuario.getValor())
   {
-    throw invalid_argument("Informações sobre viagem inexistente ou pertencente a outra conta");
+    throw invalid_argument("Informações sobre viagem não existentes ou pertencente a outra conta");
   }
 
-  sqlCommand = "SELECT * FROM activity WHERE destinationCode = '" + destinationCode.getValue() + "';";
+  ComandoSQL = "SELECT * FROM atividade WHERE codigodestino = '" + CodigoDestino.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
   if (status != SQLITE_OK)
   {
     throw invalid_argument("Erro na leitura das atividades");
   }
 
-  vector<Activity> activities;
+  vector<Atividade> atividades;
   for (size_t i = 0; i < results.size(); i++)
   {
-    Code code = Code(results[i]["code"]);
-    Name name = Name(results[i]["name"]);
-    Date date = Date(results[i]["date"]);
-    Time time = Time(results[i]["time"]);
-    Duration duration = Duration(results[i]["duration"]);
-    Money price = Money(results[i]["price"]);
-    Rating rating = Rating(results[i]["rating"]);
-    Activity activity = Activity(code, name, date, time, duration, price, rating);
-    activities.push_back(activity);
+    Codigo codigo = Codigo(results[i]["codigo"]);
+    Nome nome = Nome(results[i]["nome"]);
+    Data data = Data(results[i]["data"]);
+    Horario horario = Horario(results[i]["horario"]);
+    Duracao duracao = Duracao(results[i]["duracao"]);
+    Dinheiro preco = Dinheiro(results[i]["preco"]);
+    Avaliacao avaliacao = Avaliacao(results[i]["avaliacao"]);
+    Atividade atividade = Atividade(codigo, nome, data, horario, duracao, preco, avaliacao);
+    atividades.push_back(atividade);
   }
-  return activities;
+  return atividades;
 }
