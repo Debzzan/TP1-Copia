@@ -35,7 +35,7 @@ void Modelo::CriarTableViagem()
   ComandoSQL = "CREATE TABLE IF NOT EXISTS viagem("
                "codigo VARCHAR(6) PRIMARY KEY,"
                "nome VARCHAR(30) NOT NULL,"
-               "avaliacao INTEGER(1) CHECK(rating >= 0 AND rating <= 5),"
+               "avaliacao INTEGER(1) CHECK(avaliacao >= 0 AND avaliacao <= 5),"
                "codigoconta VARCHAR(6),"
                "FOREIGN KEY(codigoconta) REFERENCES conta(codigo));";
   this->Executar();
@@ -48,7 +48,7 @@ void Modelo::CriarTableDestino()
                "nome VARCHAR(30) NOT NULL,"
                "chegada VARCHAR(8) NOT NULL,"
                "partida VARCHAR(8) NOT NULL,"
-               "avaliacao INTEGER(1) CHECK(rating >= 0 AND rating <= 5),"
+               "avaliacao INTEGER(1) CHECK(avaliacao >= 0 AND avaliacao <= 5),"
                "codigoviagem VARCHAR(6),"
                "FOREIGN KEY(codigoviagem) REFERENCES viagem(codigo));";
   this->Executar();
@@ -61,9 +61,9 @@ void Modelo::CriarTableAtividade()
                "nome VARCHAR(30) NOT NULL,"
                "data VARCHAR(8) NOT NULL,"
                "horario VARCHAR(5) NOT NULL,"
-               "duracao INTEGER CHECK(duration >= 0 AND duration <= 360),"
-               "preco INTEGER CHECK(price >= 0 AND price <= 200000),"
-               "avaliacao INTEGER(1) CHECK(rating >= 0 AND rating <= 5),"
+               "duracao INTEGER CHECK(duracao >= 0 AND duracao <= 360),"
+               "preco INTEGER CHECK(preco >= 0 AND preco <= 200000),"
+               "avaliacao INTEGER(1) CHECK(avaliacao >= 0 AND avaliacao <= 5),"
                "codigodestino VARCHAR(6),"
                "FOREIGN KEY(codigodestino) REFERENCES destino(codigo));";
   this->Executar();
@@ -74,8 +74,8 @@ void Modelo::CriarTableHospedagem()
   ComandoSQL = "CREATE TABLE IF NOT EXISTS hospedagem("
                "codigo VARCHAR(6) PRIMARY KEY,"
                "nome VARCHAR(30) NOT NULL,"
-               "precodiaria INTEGER CHECK(dailyRate >= 0 AND dailyRate <= 200000),"
-               "avaliacao INTEGER(1) CHECK(rating >= 0 AND rating <= 5),"
+               "precodiaria INTEGER CHECK(precodiaria >= 0 AND precodiaria <= 200000),"
+               "avaliacao INTEGER(1) CHECK(avaliacao >= 0 AND avaliacao <= 5),"
                "codigodestino VARCHAR(6),"
                "FOREIGN KEY(codigodestino) REFERENCES destino(codigo));";
   this->Executar();

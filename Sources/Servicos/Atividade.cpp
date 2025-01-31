@@ -10,7 +10,7 @@ void ModeloAtividade::Criar(Codigo &CodigoUsuario, Codigo &CodigoAtividadeDestin
   results.clear();
   this->Executar();
 
-  if (results.empty() || results[0]["accountCode"] != CodigoUsuario.getValor())
+  if (results.empty() || results[0]["codigoconta"] != CodigoUsuario.getValor())
   {
     throw invalid_argument("Destino não existente ou pertencente a outra conta");
   }
