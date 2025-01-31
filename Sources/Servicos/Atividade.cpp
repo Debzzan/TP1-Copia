@@ -2,20 +2,20 @@
 
 void ModeloAtividade::Criar(Codigo &CodigoUsuario, Codigo &CodigoAtividadeDestino, Atividade &NovaAtividade)
 {
-  ComandoSQL = "SELECT travelCode FROM destination WHERE code = '" + CodigoAtividadeDestino.getValor() + "';";
+  ComandoSQL = "SELECT codigodestino FROM destino WHERE codigo = '" + CodigoAtividadeDestino.getValor() + "';";
   results.clear();
   this->Executar();
 
-  sqlCommand = "SELECT accountCode FROM travel WHERE code = '" + results[0]["travelCode"] + "';";
+  ComandoSQL = "SELECT codigoconta FROM viagem WHERE codigo = '" + results[0]["codigodestino"] + "';";
   results.clear();
   this->Executar();
 
   if (results.empty() || results[0]["accountCode"] != CodigoUsuario.getValor())
   {
-    throw invalid_argument("Destino Não existente ou pertencente a outra conta");
+    throw invalid_argument("Destino não existente ou pertencente a outra conta");
   }
 
-  sqlCommand = "SELECT arrival, departure FROM destination WHERE code = '" + CodigoAtividadeDestino.getValor() + "';";
+  ComandoSQL = "SELECT chegada, partida FROM destino WHERE codigo = '" + CodigoAtividadeDestino.getValor() + "';";
   results.clear();
   this->Executar();
 
@@ -24,66 +24,67 @@ void ModeloAtividade::Criar(Codigo &CodigoUsuario, Codigo &CodigoAtividadeDestin
     throw invalid_argument("Data da atividade fora do intervalo do destino");
   }
 
-  string activityCode = NovaAtividade.get("code").getValue();
-  string activityName = NovaAtividade.get("name").getValue();
-  string activityDate = NovaAtividade.get("date").getValue();
-  string activityTime = NovaAtividade.get("time").getValue();
-  string activityDuration = NovaAtividade.get("duration").getValue();
-  string activityPrice = NovaAtividade.get("price").getValue();
-  string activityRating = NovaAtividade.get("rating").getValue();
+  string AtividadeCodigo = NovaAtividade.get("codigo").getValor();
+  string AtividadeNome = NovaAtividade.get("nome").getValor();
+  string AtividadeData = NovaAtividade.get("data").getValor();
+  string AtividadeHorario = NovaAtividade.get("horario").getValor();
+  string AtividadeDuracao = NovaAtividade.get("duracao").getValor();
+  string AtividadePreco = NovaAtividade.get("preco").getValor();
+  string AtividadeAvaliacao = NovaAtividade.get("avaliacao").getValor();
 
-  sqlCommand = "INSERT INTO activity (code, name, date, time, duration, price, rating, destinationCode) VALUES ('" + activityCode + "', '" + activityName + "', '" + activityDate + "', '" + activityTime + "', '" + activityDuration + "', '" + activityPrice + "', '" + activityRating + "', '" + activityDestinationCode.getValue() + "');";
+  ComandoSQL = "INSERT INTO atividade (codigo, nome, data, horario, duracao, preco, avaliacao, codigodestino) VALUES ('" + AtividadeCodigo + "', '" + AtividadeNome + "', '" + AtividadeData + "', '" + AtividadeHorario + "', '" + AtividadeDuracao + "', '" + AtividadePreco + "', '" + AtividadeAvaliacao + "', '" + CodigoAtividadeDestino.getValor() + "');";
   results.clear();
-  this->execute();
+  this->Executar();
 
   if (status != SQLITE_OK)
   {
-    throw invalid_argument("Erro na criação da atividade");
+    throw invalid_argument("Erro criação atividade");
   }
 }
 
-void ActivityModel::update(Code &userCode, Code &activityCode, Activity &updatedActivity)
+void ModeloAtividade::Atualizar(Codigo &CodigoUsuario, Codigo &CodigoAtividade, Atividade &AtividadeAtualizada)
 {
-  sqlCommand = "SELECT destinationCode FROM activity WHERE code = '" + activityCode.getValue() + "';";
+  ComandoSQL = "SELECT codigodestino FROM atividade WHERE codigo = '" + CodigoAtividade.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  sqlCommand = "SELECT travelCode FROM destination WHERE code = '" + results[0]["destinationCode"] + "';";
+  ComandoSQL = "SELECT codigoviagem FROM destino WHERE codigo = '" + results[0]["codigodestino"] + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  sqlCommand = "SELECT accountCode FROM travel WHERE code = '" + results[0]["travelCode"] + "';";
+  ComandoSQL = "SELECT codigoconta FROM viagem WHERE codigo = '" + results[0]["codigoviagem"] + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  if (results.empty() || results[0]["accountCode"] != userCode.getValue())
+  if (results.empty() || results[0]["codigoconta"] != CodigoUsuario.getValor())
   {
-    throw invalid_argument("Atividade inexistente ou pertencente a outra conta");
+    throw invalid_argument("Atividade não existente ou pertencente a outra conta");
   }
 
-  sqlCommand = "SELECT destinationCode FROM activity WHERE code = '" + activityCode.getValue() + "';";
+  ComandoSQL = "SELECT codigodestino FROM atividade WHERE codigo = '" + CodigoAtividade.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  sqlCommand = "SELECT arrival, departure FROM destination WHERE code = '" + results[0]["destinationCode"] + "';";
+  ComandoSQL = "SELECT chegada, partida FROM destino WHERE codigo = '" + results[0]["codigodestino"] + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  if (!Date::isWithinRange(updatedActivity.get("date").getValue(), results[0]["arrival"], results[0]["departure"]))
+  if (!Data::AlcanceDatas(AtividadeAtualizada.get("data").getValor(), results[0]["chegada"], results[0]["partida"]))
   {
     throw invalid_argument("Data da atividade fora do intervalo do destino");
   }
 
-  string activityName = updatedActivity.get("name").getValue();
-  string activityDate = updatedActivity.get("date").getValue();
-  string activityTime = updatedActivity.get("time").getValue();
-  string activityDuration = updatedActivity.get("duration").getValue();
-  string activityPrice = updatedActivity.get("price").getValue();
-  string activityRating = updatedActivity.get("rating").getValue();
+  string AtividadeCodigo = AtividadeAtualizada.get("codigo").getValor();
+  string AtividadeNome = AtividadeAtualizada.get("nome").getValor();
+  string AtividadeData = AtividadeAtualizada.get("data").getValor();
+  string AtividadeHorario = AtividadeAtualizada.get("horario").getValor();
+  string AtividadeDuracao = AtividadeAtualizada.get("duracao").getValor();
+  string AtividadePreco = AtividadeAtualizada.get("preco").getValor();
+  string AtividadeAvaliacao = AtividadeAtualizada.get("avaliacao").getValor();
 
-  sqlCommand = "UPDATE activity SET name = '" + activityName + "', date = '" + activityDate + "', time = '" + activityTime + "', duration = '" + activityDuration + "', price = '" + activityPrice + "', rating = '" + activityRating + "' WHERE code = '" + activityCode.getValue() + "';";
+  ComandoSQL = "UPDATE atividade SET nome = '" + AtividadeNome + "', data = '" + AtividadeData + "', horario = '" + AtividadeHorario + "', duracao = '" + AtividadeDuracao + "', preco = '" + AtividadePreco + "', avaliacao = '" + AtividadeAvaliacao + "' WHERE codigo = '" + CodigoAtividade.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
   if (status != SQLITE_OK)
   {
@@ -91,28 +92,28 @@ void ActivityModel::update(Code &userCode, Code &activityCode, Activity &updated
   }
 }
 
-void ActivityModel::remove(Code &userCode, Code &activityCode)
+void ModeloAtividade::Remover(Codigo &CodigoUsuario, Codigo &CodigoAtividade)
 {
-  sqlCommand = "SELECT destinationCode FROM activity WHERE code = '" + activityCode.getValue() + "';";
+  ComandoSQL = "SELECT codigodestino FROM atividade WHERE codigo = '" + CodigoAtividade.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  sqlCommand = "SELECT travelCode FROM destination WHERE code = '" + results[0]["destinationCode"] + "';";
+  ComandoSQL = "SELECT codigoviagem FROM destino WHERE codigo = '" + results[0]["codigodestino"] + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  sqlCommand = "SELECT accountCode FROM travel WHERE code = '" + results[0]["travelCode"] + "';";
+  ComandoSQL = "SELECT codigoconta FROM viagem WHERE codigo = '" + results[0]["codigoviagem"] + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
-  if (results.empty() || results[0]["accountCode"] != userCode.getValue())
+  if (results.empty() || results[0]["codigoconta"] != CodigoUsuario.getValor())
   {
     throw invalid_argument("Atividade inexistente ou pertencente a outra conta");
   }
 
-  sqlCommand = "DELETE FROM activity WHERE code = '" + activityCode.getValue() + "';";
+  ComandoSQL = "DELETE FROM atividade WHERE codigo = '" + CodigoAtividade.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
   if (status != SQLITE_OK)
   {
@@ -120,29 +121,29 @@ void ActivityModel::remove(Code &userCode, Code &activityCode)
   }
 }
 
-vector<Activity> ActivityModel::read(Code &userCode)
+vector<Atividade> ModeloAtividade::Ler(Codigo &CodigoUsuario)
 {
-  sqlCommand = "SELECT a.* FROM activity a INNER JOIN destination d ON a.destinationCode = d.code INNER JOIN travel t ON d.travelCode = t.code WHERE t.accountCode = '" + userCode.getValue() + "';";
+  ComandoSQL = "SELECT a.* FROM atividade a INNER JOIN destino d ON a.codigodestino = d.codigo INNER JOIN viagem t ON d.codigoviagem = t.codigo WHERE t.codigoconta = '" + CodigoUsuario.getValor() + "';";
   results.clear();
-  this->execute();
+  this->Executar();
 
   if (status != SQLITE_OK)
   {
     throw invalid_argument("Erro na leitura das atividades");
   }
 
-  vector<Activity> activities;
+  vector<Atividade> atividades;
   for (size_t i = 0; i < results.size(); i++)
   {
-    Code code = Code(results[i]["code"]);
-    Name name = Name(results[i]["name"]);
-    Date date = Date(results[i]["date"]);
-    Time time = Time(results[i]["time"]);
-    Duration duration = Duration(results[i]["duration"]);
-    Money price = Money(results[i]["price"]);
-    Rating rating = Rating(results[i]["rating"]);
-    Activity activity = Activity(code, name, date, time, duration, price, rating);
-    activities.push_back(activity);
+    Codigo codigo = Codigo(results[i]["codigo"]);
+    Nome nome = Nome(results[i]["nome"]);
+    Data data = Data(results[i]["data"]);
+    Horario horario = Horario(results[i]["horario"]);
+    Duracao duracao = Duracao(results[i]["duracao"]);
+    Dinheiro preco = Dinheiro(results[i]["preco"]);
+    Avaliacao avaliacao = Avaliacao(results[i]["avaliacao"]);
+    Atividade atividade = Atividade(codigo, nome, data, horario, duracao, preco, avaliacao);
+    atividades.push_back(atividade);
   }
-  return activities;
+  return atividades;
 }

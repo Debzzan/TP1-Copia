@@ -37,7 +37,7 @@ void Modelo::CriarTableViagem()
                "nome VARCHAR(30) NOT NULL,"
                "avaliacao INTEGER(1) CHECK(rating >= 0 AND rating <= 5),"
                "codigoconta VARCHAR(6),"
-               "FOREIGN KEY(accountCode) REFERENCES conta(codigo));";
+               "FOREIGN KEY(codigoconta) REFERENCES conta(codigo));";
   this->Executar();
 }
 
@@ -50,7 +50,7 @@ void Modelo::CriarTableDestino()
                "partida VARCHAR(8) NOT NULL,"
                "avaliacao INTEGER(1) CHECK(rating >= 0 AND rating <= 5),"
                "codigoviagem VARCHAR(6),"
-               "FOREIGN KEY(travelCode) REFERENCES travel(code));";
+               "FOREIGN KEY(codigoviagem) REFERENCES viagem(codigo));";
   this->Executar();
 }
 
@@ -65,7 +65,7 @@ void Modelo::CriarTableAtividade()
                "preco INTEGER CHECK(price >= 0 AND price <= 200000),"
                "avaliacao INTEGER(1) CHECK(rating >= 0 AND rating <= 5),"
                "codigodestino VARCHAR(6),"
-               "FOREIGN KEY(destinationCode) REFERENCES destination(code));";
+               "FOREIGN KEY(codigodestino) REFERENCES destino(codigo));";
   this->Executar();
 }
 
@@ -77,7 +77,7 @@ void Modelo::CriarTableHospedagem()
                "precodiaria INTEGER CHECK(dailyRate >= 0 AND dailyRate <= 200000),"
                "avaliacao INTEGER(1) CHECK(rating >= 0 AND rating <= 5),"
                "codigodestino VARCHAR(6),"
-               "FOREIGN KEY(destinationCode) REFERENCES destination(code));";
+               "FOREIGN KEY(codigodestino) REFERENCES destino(codigo));";
   this->Executar();
 }
 
