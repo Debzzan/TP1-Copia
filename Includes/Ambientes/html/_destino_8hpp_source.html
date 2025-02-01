@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=11"/>
 <meta name="generator" content="Doxygen 1.12.0"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>teste-tp1-t2: Destino.hpp Source File</title>
+<title>My Project: Destino.hpp Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -25,7 +25,7 @@
  <tbody>
  <tr id="projectrow">
   <td id="projectalign">
-   <div id="projectname">teste-tp1-t2
+   <div id="projectname">My Project
    </div>
   </td>
  </tr>
@@ -87,47 +87,57 @@ $(function(){ initResizable(false); });
   <div class="headertitle"><div class="title">Destino.hpp</div></div>
 </div><!--header-->
 <div class="contents">
-<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef DESTINO_AMBIENTE_INTERFACE_H</span></div>
-<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define DESTINO_AMBIENTE_INTERFACE_H</span></div>
+<div class="fragment"><div class="line"><a id="l00001" name="l00001"></a><span class="lineno">    1</span><span class="preprocessor">#ifndef DESTINO_AMBIENTE_INTERFACE_HPP</span></div>
+<div class="line"><a id="l00002" name="l00002"></a><span class="lineno">    2</span><span class="preprocessor">#define DESTINO_AMBIENTE_INTERFACE_HPP</span></div>
 <div class="line"><a id="l00003" name="l00003"></a><span class="lineno">    3</span> </div>
 <div class="line"><a id="l00004" name="l00004"></a><span class="lineno">    4</span><span class="preprocessor">#include &quot;../Interfaces/Apresentacao.hpp&quot;</span></div>
 <div class="line"><a id="l00005" name="l00005"></a><span class="lineno">    5</span><span class="preprocessor">#include &quot;../Interfaces/Servicos.hpp&quot;</span></div>
 <div class="line"><a id="l00006" name="l00006"></a><span class="lineno">    6</span> </div>
-<div class="foldopen" id="foldopen00007" data-start="{" data-end="};">
-<div class="line"><a id="l00007" name="l00007"></a><span class="lineno"><a class="line" href="class_ambiente_destino.html">    7</a></span><span class="keyword">class </span><a class="code hl_class" href="class_ambiente_destino.html">AmbienteDestino</a> : <span class="keyword">public</span> InterfaceApresentacao</div>
-<div class="line"><a id="l00008" name="l00008"></a><span class="lineno">    8</span>{</div>
-<div class="line"><a id="l00009" name="l00009"></a><span class="lineno">    9</span><span class="keyword">private</span>:</div>
-<div class="line"><a id="l00010" name="l00010"></a><span class="lineno">   10</span>  InterfaceServicoDestino *ServicoDestino;</div>
-<div class="line"><a id="l00011" name="l00011"></a><span class="lineno">   11</span> </div>
-<div class="line"><a id="l00012" name="l00012"></a><span class="lineno">   12</span><span class="keyword">public</span>:</div>
-<div class="line"><a id="l00013" name="l00013"></a><span class="lineno">   13</span>    <a class="code hl_class" href="class_ambiente_destino.html">AmbienteDestino</a>(Codigo &amp;CodigoUsuario) : InterfaceApresentacao(CodigoUsuario) {};</div>
-<div class="line"><a id="l00014" name="l00014"></a><span class="lineno">   14</span>    </div>
-<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>    <span class="keywordtype">void</span> setServicoDestino(InterfaceServicoDestino *ServicoDestino)</div>
-<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span>    {</div>
-<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>        this-&gt;ServicoDestino = ServicoDestino;</div>
-<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span>    };</div>
-<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span>    </div>
-<div class="line"><a id="l00020" name="l00020"></a><span class="lineno">   20</span>    <span class="keywordtype">void</span> Executar(Codigo &amp;CodigoUsuario) <span class="keyword">override</span>;</div>
-<div class="line"><a id="l00021" name="l00021"></a><span class="lineno">   21</span>    </div>
-<div class="line"><a id="l00022" name="l00022"></a><span class="lineno">   22</span>    <span class="keywordtype">void</span> Criar();</div>
-<div class="line"><a id="l00023" name="l00023"></a><span class="lineno">   23</span>    </div>
-<div class="line"><a id="l00024" name="l00024"></a><span class="lineno">   24</span>    <span class="keywordtype">void</span> Atualizar();</div>
-<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span>    </div>
-<div class="line"><a id="l00026" name="l00026"></a><span class="lineno">   26</span>    <span class="keywordtype">void</span> Remover();</div>
-<div class="line"><a id="l00027" name="l00027"></a><span class="lineno">   27</span>    </div>
-<div class="line"><a id="l00028" name="l00028"></a><span class="lineno">   28</span>    <span class="keywordtype">void</span> Ler();</div>
-<div class="line"><a id="l00029" name="l00029"></a><span class="lineno">   29</span>    </div>
-<div class="line"><a id="l00030" name="l00030"></a><span class="lineno">   30</span>    <a class="code hl_class" href="class_ambiente_destino.html">~AmbienteDestino</a>()<span class="keyword"> override</span></div>
-<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span><span class="keyword">    </span>{</div>
-<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        <span class="keyword">delete</span> ServicoDestino;</div>
-<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span> </div>
-<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span>    }</div>
-<div class="line"><a id="l00035" name="l00035"></a><span class="lineno">   35</span>    </div>
-<div class="line"><a id="l00036" name="l00036"></a><span class="lineno">   36</span>};</div>
+<div class="foldopen" id="foldopen00014" data-start="{" data-end="};">
+<div class="line"><a id="l00014" name="l00014"></a><span class="lineno"><a class="line" href="class_ambiente_destino.html">   14</a></span><span class="keyword">class </span><a class="code hl_class" href="class_ambiente_destino.html">AmbienteDestino</a> : <span class="keyword">public</span> InterfaceApresentacao</div>
+<div class="line"><a id="l00015" name="l00015"></a><span class="lineno">   15</span>{</div>
+<div class="line"><a id="l00016" name="l00016"></a><span class="lineno">   16</span><span class="keyword">private</span>:</div>
+<div class="line"><a id="l00017" name="l00017"></a><span class="lineno">   17</span>    InterfaceServicoDestino *ServicoDestino; </div>
+<div class="line"><a id="l00018" name="l00018"></a><span class="lineno">   18</span> </div>
+<div class="line"><a id="l00019" name="l00019"></a><span class="lineno">   19</span><span class="keyword">public</span>:</div>
+<div class="line"><a id="l00024" name="l00024"></a><span class="lineno"><a class="line" href="class_ambiente_destino.html#ae313cf38eba236daf0ae7228db1be872">   24</a></span>    <a class="code hl_function" href="class_ambiente_destino.html#ae313cf38eba236daf0ae7228db1be872">AmbienteDestino</a>(Codigo &amp;CodigoUsuario) : InterfaceApresentacao(CodigoUsuario) {};</div>
+<div class="line"><a id="l00025" name="l00025"></a><span class="lineno">   25</span> </div>
+<div class="foldopen" id="foldopen00030" data-start="{" data-end="}">
+<div class="line"><a id="l00030" name="l00030"></a><span class="lineno"><a class="line" href="class_ambiente_destino.html#ad3f005dd7a22855afecc88c014df3945">   30</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ambiente_destino.html#ad3f005dd7a22855afecc88c014df3945">setServicoDestino</a>(InterfaceServicoDestino *ServicoDestino)</div>
+<div class="line"><a id="l00031" name="l00031"></a><span class="lineno">   31</span>    {</div>
+<div class="line"><a id="l00032" name="l00032"></a><span class="lineno">   32</span>        this-&gt;ServicoDestino = ServicoDestino;</div>
+<div class="line"><a id="l00033" name="l00033"></a><span class="lineno">   33</span>    };</div>
 </div>
-<div class="line"><a id="l00037" name="l00037"></a><span class="lineno">   37</span> </div>
-<div class="line"><a id="l00038" name="l00038"></a><span class="lineno">   38</span><span class="preprocessor">#endif </span></div>
-<div class="ttc" id="aclass_ambiente_destino_html"><div class="ttname"><a href="class_ambiente_destino.html">AmbienteDestino</a></div><div class="ttdef"><b>Definition</b> Destino.hpp:8</div></div>
+<div class="line"><a id="l00034" name="l00034"></a><span class="lineno">   34</span> </div>
+<div class="line"><a id="l00039" name="l00039"></a><span class="lineno"><a class="line" href="class_ambiente_destino.html#adbf944e4d9c0cbd21ad1f7a946b09415">   39</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ambiente_destino.html#adbf944e4d9c0cbd21ad1f7a946b09415">Executar</a>(Codigo &amp;CodigoUsuario) <span class="keyword">override</span>;</div>
+<div class="line"><a id="l00040" name="l00040"></a><span class="lineno">   40</span> </div>
+<div class="line"><a id="l00044" name="l00044"></a><span class="lineno"><a class="line" href="class_ambiente_destino.html#a988c290dd481dd85ffe739726f017dea">   44</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ambiente_destino.html#a988c290dd481dd85ffe739726f017dea">Criar</a>();</div>
+<div class="line"><a id="l00045" name="l00045"></a><span class="lineno">   45</span> </div>
+<div class="line"><a id="l00049" name="l00049"></a><span class="lineno"><a class="line" href="class_ambiente_destino.html#aa30c6e527c2d6216b5eece36fc089610">   49</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ambiente_destino.html#aa30c6e527c2d6216b5eece36fc089610">Atualizar</a>();</div>
+<div class="line"><a id="l00050" name="l00050"></a><span class="lineno">   50</span> </div>
+<div class="line"><a id="l00054" name="l00054"></a><span class="lineno"><a class="line" href="class_ambiente_destino.html#ab9dd557f92309b06c9dd707c53a1b3ab">   54</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ambiente_destino.html#ab9dd557f92309b06c9dd707c53a1b3ab">Remover</a>();</div>
+<div class="line"><a id="l00055" name="l00055"></a><span class="lineno">   55</span> </div>
+<div class="line"><a id="l00059" name="l00059"></a><span class="lineno"><a class="line" href="class_ambiente_destino.html#a09ad171dddd2728f88552a9b4dc33824">   59</a></span>    <span class="keywordtype">void</span> <a class="code hl_function" href="class_ambiente_destino.html#a09ad171dddd2728f88552a9b4dc33824">Ler</a>();</div>
+<div class="line"><a id="l00060" name="l00060"></a><span class="lineno">   60</span> </div>
+<div class="foldopen" id="foldopen00066" data-start="{" data-end="}">
+<div class="line"><a id="l00066" name="l00066"></a><span class="lineno"><a class="line" href="class_ambiente_destino.html#a27f512ab59f13681bf31f3bb2332758a">   66</a></span>    <a class="code hl_function" href="class_ambiente_destino.html#a27f512ab59f13681bf31f3bb2332758a">~AmbienteDestino</a>()<span class="keyword"> override</span></div>
+<div class="line"><a id="l00067" name="l00067"></a><span class="lineno">   67</span><span class="keyword">    </span>{</div>
+<div class="line"><a id="l00068" name="l00068"></a><span class="lineno">   68</span>        <span class="keyword">delete</span> ServicoDestino;</div>
+<div class="line"><a id="l00069" name="l00069"></a><span class="lineno">   69</span>    }</div>
+</div>
+<div class="line"><a id="l00070" name="l00070"></a><span class="lineno">   70</span>};</div>
+</div>
+<div class="line"><a id="l00071" name="l00071"></a><span class="lineno">   71</span> </div>
+<div class="line"><a id="l00072" name="l00072"></a><span class="lineno">   72</span><span class="preprocessor">#endif </span><span class="comment">// DESTINO_AMBIENTE_INTERFACE_HPP</span></div>
+<div class="ttc" id="aclass_ambiente_destino_html"><div class="ttname"><a href="class_ambiente_destino.html">AmbienteDestino</a></div><div class="ttdoc">Classe responsável pelo ambiente de destino do usuário.</div><div class="ttdef"><b>Definition</b> Destino.hpp:15</div></div>
+<div class="ttc" id="aclass_ambiente_destino_html_a09ad171dddd2728f88552a9b4dc33824"><div class="ttname"><a href="class_ambiente_destino.html#a09ad171dddd2728f88552a9b4dc33824">AmbienteDestino::Ler</a></div><div class="ttdeci">void Ler()</div><div class="ttdoc">Método para ler informações de um destino.</div></div>
+<div class="ttc" id="aclass_ambiente_destino_html_a27f512ab59f13681bf31f3bb2332758a"><div class="ttname"><a href="class_ambiente_destino.html#a27f512ab59f13681bf31f3bb2332758a">AmbienteDestino::~AmbienteDestino</a></div><div class="ttdeci">~AmbienteDestino() override</div><div class="ttdoc">Destrutor da classe AmbienteDestino.</div><div class="ttdef"><b>Definition</b> Destino.hpp:66</div></div>
+<div class="ttc" id="aclass_ambiente_destino_html_a988c290dd481dd85ffe739726f017dea"><div class="ttname"><a href="class_ambiente_destino.html#a988c290dd481dd85ffe739726f017dea">AmbienteDestino::Criar</a></div><div class="ttdeci">void Criar()</div><div class="ttdoc">Método para criar um novo destino.</div></div>
+<div class="ttc" id="aclass_ambiente_destino_html_aa30c6e527c2d6216b5eece36fc089610"><div class="ttname"><a href="class_ambiente_destino.html#aa30c6e527c2d6216b5eece36fc089610">AmbienteDestino::Atualizar</a></div><div class="ttdeci">void Atualizar()</div><div class="ttdoc">Método para atualizar um destino existente.</div></div>
+<div class="ttc" id="aclass_ambiente_destino_html_ab9dd557f92309b06c9dd707c53a1b3ab"><div class="ttname"><a href="class_ambiente_destino.html#ab9dd557f92309b06c9dd707c53a1b3ab">AmbienteDestino::Remover</a></div><div class="ttdeci">void Remover()</div><div class="ttdoc">Método para remover um destino.</div></div>
+<div class="ttc" id="aclass_ambiente_destino_html_ad3f005dd7a22855afecc88c014df3945"><div class="ttname"><a href="class_ambiente_destino.html#ad3f005dd7a22855afecc88c014df3945">AmbienteDestino::setServicoDestino</a></div><div class="ttdeci">void setServicoDestino(InterfaceServicoDestino *ServicoDestino)</div><div class="ttdoc">Define o serviço de destino.</div><div class="ttdef"><b>Definition</b> Destino.hpp:30</div></div>
+<div class="ttc" id="aclass_ambiente_destino_html_adbf944e4d9c0cbd21ad1f7a946b09415"><div class="ttname"><a href="class_ambiente_destino.html#adbf944e4d9c0cbd21ad1f7a946b09415">AmbienteDestino::Executar</a></div><div class="ttdeci">void Executar(Codigo &amp;CodigoUsuario) override</div><div class="ttdoc">Método para executar operações no ambiente de destino.</div></div>
+<div class="ttc" id="aclass_ambiente_destino_html_ae313cf38eba236daf0ae7228db1be872"><div class="ttname"><a href="class_ambiente_destino.html#ae313cf38eba236daf0ae7228db1be872">AmbienteDestino::AmbienteDestino</a></div><div class="ttdeci">AmbienteDestino(Codigo &amp;CodigoUsuario)</div><div class="ttdoc">Construtor da classe AmbienteDestino.</div><div class="ttdef"><b>Definition</b> Destino.hpp:24</div></div>
 </div><!-- fragment --></div><!-- contents -->
 <!-- start footer part -->
 <hr class="footer"/><address class="footer"><small>

@@ -2,7 +2,7 @@
 \hypertarget{class_ambiente_atividade}{}\label{class_ambiente_atividade}\index{AmbienteAtividade@{AmbienteAtividade}}
 
 
-Classe responsável pela apresentação e gerenciamento das atividades no ambiente.  
+Construtor da classe \doxylink{class_ambiente_atividade}{Ambiente\+Atividade}.  
 
 
 
@@ -41,7 +41,54 @@ void {\bfseries Ler} ()
 
 
 \doxysubsection{Detailed Description}
-Classe responsável pela apresentação e gerenciamento das atividades no ambiente. 
+Construtor da classe \doxylink{class_ambiente_atividade}{Ambiente\+Atividade}. 
+
+Classe responsável pela apresentação e gerenciamento das atividades no ambiente.
+
+Inicializa uma instância da classe \doxylink{class_ambiente_atividade}{Ambiente\+Atividade} com o código do usuário fornecido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário.\\
+\hline
+\end{DoxyParams}
+Define o serviço de atividades.
+
+Associa um ponteiro para o serviço de atividades à instância da classe \doxylink{class_ambiente_atividade}{Ambiente\+Atividade}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Servico\+Atividade} & Ponteiro para o serviço de atividades.\\
+\hline
+\end{DoxyParams}
+Executa a apresentação das atividades.
+
+Realiza a apresentação das atividades para o usuário com base no código do usuário fornecido.
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário.\\
+\hline
+\end{DoxyParams}
+Cria uma nova atividade.
+
+Inicia o processo de criação de uma nova atividade no ambiente.
+
+Atualiza uma atividade existente.
+
+Inicia o processo de atualização de uma atividade existente no ambiente.
+
+Remove uma atividade.
+
+Inicia o processo de remoção de uma atividade existente no ambiente.
+
+Lê uma atividade.
+
+Inicia o processo de leitura e exibição dos detalhes de uma atividade existente no ambiente.
+
+Destrutor da classe \doxylink{class_ambiente_atividade}{Ambiente\+Atividade}.
+
+Libera a memória alocada para o serviço de atividades e realiza a limpeza necessária antes da destruição da instância da classe.
 
 A classe \doxylink{class_ambiente_atividade}{Ambiente\+Atividade} herda de Interface\+Apresentacao e é responsável por gerenciar a apresentação das atividades, incluindo a criação, atualização, remoção e leitura de atividades. Utiliza um ponteiro para o serviço de atividades para realizar essas operações. 
 
