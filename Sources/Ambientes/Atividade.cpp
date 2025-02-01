@@ -126,7 +126,7 @@ void AmbienteAtividade::Atualizar()
   cin >> nome;
   Nome NomeDominio = Nome(nome);
 
-  cout << "3 - Digite a nova data da atividade (DD-MM-AA): ";
+  cout << "3 - Digite a nova data da atividade (DD/MM/AA): ";
   cin >> data;
   Data DataDominio = Data(data);
 
@@ -134,7 +134,7 @@ void AmbienteAtividade::Atualizar()
   cin >> horario;
   Horario HorarioDominio = Horario(horario);
 
-  cout << "5 - Digite a nova duração da atividade (HH:MM): ";
+  cout << "5 - Digite a nova duração da atividade (0 a 360 min): ";
   cin >> duracao;
   Duracao DuracaoDominio = Duracao(duracao);
 
