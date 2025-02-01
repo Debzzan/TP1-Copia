@@ -19,7 +19,7 @@ void AmbienteConta::Executar(Codigo &CodigoUsuario)
         cout << "1 - Continuar para HUB" << endl;
         cout << "2 - Informacao da conta" << endl;         
         cout << "3 - Sair" << endl;   
-        cout << "Escolha uma opção (1 a 3): ";
+        cout << "Escolha uma opcao (1 a 3): ";
         int option;
         cin >> option;
 
@@ -33,7 +33,7 @@ void AmbienteConta::Executar(Codigo &CodigoUsuario)
           Sair();
         else
         {
-          cout << "Opção inválida" << endl;
+          cout << "Opcao invalida" << endl;
           Executar(CodigoUsuario);
         }
       }
@@ -45,14 +45,13 @@ void AmbienteConta::Executar(Codigo &CodigoUsuario)
         cout << "1 - Criar conta" << endl;
         cout << "2 - Entrar" << endl;
         cout << "3 - Sair" << endl;
-        cout << "Escolha uma opção (1 a 3): ";
+        cout << "Escolha uma opcao (1 a 3): ";
         string option;
         cin >> option;
 
-        // Limpa o terminal
         cout << "\033[2J\033[1;1H";
 
-        // Executa a opção escolhida
+
         if (option == "1")
         {
           Criar();
@@ -67,7 +66,7 @@ void AmbienteConta::Executar(Codigo &CodigoUsuario)
         }
         else
         {
-          cout << "Opção inválida" << endl;
+          cout << "Opcao invalida" << endl;
               cout << "Pressione qualquer tecla para continuar.";
               cin.ignore();
               cin.get();
@@ -76,13 +75,13 @@ void AmbienteConta::Executar(Codigo &CodigoUsuario)
       }
 
       cout << endl
-           << "***** OPERAÇÃO FEITA COM SUCESSO ***** " << endl
+           << "***** OPERACAO FEITA COM SUCESSO ***** " << endl
            << endl;
     }
     catch (const std::exception &e)
     {
       cout << endl
-           << "****** FALHA NA OPERAÇÃO ******" << endl;
+           << "****** FALHA NA OPERACAO ******" << endl;
       cout << e.what() << endl;
       cout << "********************************" << endl
            << endl;
@@ -103,14 +102,14 @@ void AmbienteConta::Criar()
   cout << "//////////////////////" << endl;
   cout << "Digite a senha da sua nova conta: " << endl;
   cout << " - A senha deve conter 5 digitos" << endl;
-  cout << " - Não pode conter digitos em duplicidade (EX.: 12234)" << endl;
-  cout << " - Não pode estar em ordem crescente ou descrescente (EX.: 12345 ou 54321)" << endl;
+  cout << " - Nao pode conter digitos em duplicidade (EX.: 12234)" << endl;
+  cout << " - Nao pode estar em ordem crescente ou descrescente (EX.: 12345 ou 54321)" << endl;
   cin >> senha;
   Codigo CodigoUsuarioDominio = Codigo();
   Senha SenhaDominio = Senha(senha);
   ServicoConta->Criar(CodigoUsuarioDominio, SenhaDominio);
   CodigoUsuario.setValor(CodigoUsuarioDominio.getValor());
-  cout << "Sua conta foi criada. O seu codigo de acesso é: " << CodigoUsuarioDominio.getValor() << endl;
+  cout << "Sua conta foi criada. O seu codigo de acesso e: " << CodigoUsuarioDominio.getValor() << endl;
   return;
 }
 
@@ -118,9 +117,9 @@ void AmbienteConta::Autenticar()
 {
   string senha, codigo;
   cout << "//////////////////////" << endl;
-  cout << "Autenticação de Usuario" << endl;
+  cout << "Autenticacao de Usuario" << endl;
   cout << "//////////////////////" << endl;
-  cout << "Digite o código da sua conta: ";
+  cout << "Digite o codigo da sua conta: ";
   cin >> codigo;
   Codigo CodigoDominio = Codigo(codigo);
   cout << "Digite a senha da sua conta: ";
@@ -133,20 +132,20 @@ void AmbienteConta::Autenticar()
     return;
   }
 
-  throw invalid_argument("Erro na sua autenticação. Senha ou código incorretos/inválidos.");
+  throw invalid_argument("Erro na sua autenticacao. Senha ou codigo incorretos/invalidos.");
 }
 
 void AmbienteConta::Sair()
 {
   CodigoUsuario.setValor("000000");
-  cout << "Você saiu da sua conta." << endl;
+  cout << "Voce saiu da sua conta." << endl;
 }
 
 void AmbienteConta::Ler(Codigo &CodigoUsuario)
 {
   string Codigo = CodigoUsuario.getValor();
   cout << "//////////////////////" << endl;
-  cout << "Código do usuário: " << Codigo << endl;
+  cout << "Codigo do usuario: " << Codigo << endl;
   cout << "//////////////////////" << endl;
 
 }

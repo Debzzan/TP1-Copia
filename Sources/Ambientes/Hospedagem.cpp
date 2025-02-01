@@ -20,7 +20,7 @@ void AmbienteHospedagem::Executar(Codigo &CodigoUsuario)
       cout << "3 - Atualizar hospedagem" << endl;
       cout << "4 - Deletar hospedagem" << endl;
       cout << "5 - Retornar ao HUB" << endl;
-      cout << "Escolha uma opção (1 a 5) : ";
+      cout << "Escolha uma opcao (1 a 5) : ";
       string option;
       cin >> option;
 
@@ -50,7 +50,7 @@ void AmbienteHospedagem::Executar(Codigo &CodigoUsuario)
       }
          else
         {
-          cout << "Opção inválida" << endl;
+          cout << "Opcao invalida" << endl;
               cout << "Pressione qualquer tecla para continuar.";
               cin.ignore();
               cin.get();
@@ -58,13 +58,13 @@ void AmbienteHospedagem::Executar(Codigo &CodigoUsuario)
         }
 
       cout << endl
-           << "***** OPERAÇÃO FEITA COM SUCESSO *****" << endl
+           << "***** OPERACAO FEITA COM SUCESSO *****" << endl
            << endl;
     }
     catch (const std::exception &e)
     {
       cout << endl
-           <<  "****** FALHA NA OPERAÇÃO ******" << endl;
+           <<  "****** FALHA NA OPERACAO ******" << endl;
       cout << e.what() << endl;
       cout << "********************************" << endl;
     }
@@ -89,11 +89,11 @@ void AmbienteHospedagem::Criar()
     Nome NomeDominio = Nome(nome);
     
 
-  cout << "2 - Digite o valor da diária: ";
+  cout << "2 - Digite o valor da diaria: ";
   cin >> precodiaria;
     Dinheiro PrecoDiariaDominio = Dinheiro(precodiaria);
     
-  cout << "3 - Digite o código do destino atrelado: ";
+  cout << "3 - Digite o codigo do destino atrelado: ";
   cin >> CodigoHospedagemDestino;
     Codigo CodigoHospedagemDestinoDominio = Codigo(CodigoHospedagemDestino);
     
@@ -107,7 +107,7 @@ void AmbienteHospedagem::Atualizar()
   cout << "//////////////////////" << endl;
   cout << " Atualizar hospedagem" << endl;
   cout << "//////////////////////" << endl;
-  cout << "1 - Digite o código da hospedagem a ser atualizada: ";
+  cout << "1 - Digite o codigo da hospedagem a ser atualizada: ";
   cin >> CodigoAmbiente;
     Codigo CodigoDominio = Codigo(CodigoAmbiente);
 
@@ -115,11 +115,11 @@ void AmbienteHospedagem::Atualizar()
   cin >> nome;
     Nome NomeDominio = Nome(nome);
     
-  cout << "3 - Digite o novo valor da diária: ";
+  cout << "3 - Digite o novo valor da diaria: ";
   cin >> precodiaria;
     Dinheiro PrecoDiariaDominio = Dinheiro(precodiaria);
 
-  cout << "4 - Digite a nova avaliação da hospedagem: ";
+  cout << "4 - Digite a nova avaliacao da hospedagem: ";
   cin >> avaliacao;
     Avaliacao AvaliacaoDominio = Avaliacao(avaliacao);
     
@@ -135,7 +135,7 @@ void AmbienteHospedagem::Remover()
   cout << "//////////////////////" << endl;
   cout << " Deletar hospedagem" << endl;
   cout << "//////////////////////" << endl;
-  cout << "1 - Digite o código da hospedagem: ";
+  cout << "1 - Digite o codigo da hospedagem: ";
   cin >> CodigoAmbiente;
     Codigo codigo = Codigo(CodigoAmbiente);
     
@@ -151,14 +151,14 @@ void AmbienteHospedagem::Ler()
   vector<Hospedagem> hospedagens = ServicoHospedagem->Ler(CodigoUsuario);
 
     if (hospedagens.size() == 0)
-        cout << "Você não possui nenhuma hospedagem atrelada a esta conta" << endl;
+        cout << "Voce nao possui nenhuma hospedagem atrelada a esta conta" << endl;
 
     for (const auto &hospedagem : hospedagens)
     {
-        cout << "Código: " << hospedagem.get("codigo").getValor() << endl;
+        cout << "Codigo: " << hospedagem.get("codigo").getValor() << endl;
         cout << "Nome: " << hospedagem.get("nome").getValor() << endl;
-        cout << "Diária: " << hospedagem.get("precodiaria").getValor() << endl;
-        cout << "Avaliação: " << hospedagem.get("avaliacao").getValor() << endl;
+        cout << "Diaria: " << hospedagem.get("precodiaria").getValor() << endl;
+        cout << "Avaliacao: " << hospedagem.get("avaliacao").getValor() << endl;
         cout << "//////////////////////" << endl;
     }
 }

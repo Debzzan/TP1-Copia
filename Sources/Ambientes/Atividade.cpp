@@ -50,7 +50,7 @@ void AmbienteAtividade::Executar(Codigo &CodigoUsuario)
       }
         else
         {
-          cout << "Opção inválida" << endl;
+          cout << "Opcao invalida" << endl;
               cout << "Pressione qualquer tecla para continuar.";
               cin.ignore();
               cin.get();
@@ -58,13 +58,13 @@ void AmbienteAtividade::Executar(Codigo &CodigoUsuario)
         }
 
       cout << endl
-           << "***** OPERAÇÃO FEITA COM SUCESSO *****" << endl
+           << "***** OPERACAO FEITA COM SUCESSO *****" << endl
            << endl;
     }
     catch (const std::exception &e)
     {
       cout << endl
-           <<  "****** FALHA NA OPERAÇÃO ******" << endl;
+           <<  "****** FALHA NA OPERACAO ******" << endl;
       cout << e.what() << endl;
       cout << "********************************" << endl;
     }
@@ -92,19 +92,19 @@ void AmbienteAtividade::Criar()
   cin >> data;
   Data DataDominio = Data(data);
 
-  cout << "3 - Digite o horário da atividade (HH:MM): ";
+  cout << "3 - Digite o horario da atividade (HH:MM): ";
   cin >> horario;
   Horario HorarioDominio = Horario(horario);
 
-  cout << "4 - Digite a duração da atividade (0 a 360 min): ";
+  cout << "4 - Digite a duracao da atividade (0 a 360 min): ";
   cin >> duracao;
   Duracao DuracaoDominio = Duracao(duracao);
 
-  cout << "5 - Digite o preço da atividade: ";
+  cout << "5 - Digite o preco da atividade: ";
   cin >> preco;
   Dinheiro PrecoDominio = Dinheiro(preco);
 
-  cout << "6 - Digite o código do destino atrelado: ";
+  cout << "6 - Digite o codigo do destino atrelado: ";
   cin >> CodigoDestinoAtividade;
   Codigo CodigoDestinoAtividadeDominio = Codigo(CodigoDestinoAtividade);
 
@@ -118,7 +118,7 @@ void AmbienteAtividade::Atualizar()
   cout << "//////////////////////" << endl;
   cout << " Atualizar atividade" << endl;
   cout << "//////////////////////" << endl;
-  cout << "1 - Digite o código da atividade a ser atualizada: ";
+  cout << "1 - Digite o codigo da atividade a ser atualizada: ";
   cin >> CodigoAtividade;
   Codigo CodigoAtividadeDominio = Codigo(CodigoAtividade);
 
@@ -130,19 +130,19 @@ void AmbienteAtividade::Atualizar()
   cin >> data;
   Data DataDominio = Data(data);
 
-  cout << "4 - Digite o novo horário da atividade (HH:MM): ";
+  cout << "4 - Digite o novo horario da atividade (HH:MM): ";
   cin >> horario;
   Horario HorarioDominio = Horario(horario);
 
-  cout << "5 - Digite a nova duração da atividade (0 a 360 min): ";
+  cout << "5 - Digite a nova duracao da atividade (0 a 360 min): ";
   cin >> duracao;
   Duracao DuracaoDominio = Duracao(duracao);
 
-  cout << "6 - Digite o novo preço da atividade: ";
+  cout << "6 - Digite o novo preco da atividade: ";
   cin >> preco;
   Dinheiro PrecoDominio = Dinheiro(preco);
 
-  cout << "7 - Digite a nova avaliação da atividade: ";
+  cout << "7 - Digite a nova avaliacao da atividade: ";
   cin >> avaliacao;
   Avaliacao AvaliacaoDominio = Avaliacao(avaliacao);
   
@@ -157,7 +157,7 @@ void AmbienteAtividade::Remover()
   cout << "//////////////////////" << endl;
   cout << "  Deletar atividade" << endl;
   cout << "//////////////////////" << endl;
-  cout << "1 - Digite o código da atividade: ";
+  cout << "1 - Digite o codigo da atividade: ";
   cin >> CodigoAtividade;
   Codigo codigo = Codigo(CodigoAtividade);
 
@@ -173,17 +173,17 @@ void AmbienteAtividade::Ler()
   vector<Atividade> atividades = ServicoAtividade->Ler(CodigoUsuario);
 
   if (atividades.size() == 0)
-    cout << "Você não possui nenhuma atividade atrelada a esta conta" << endl;
+    cout << "Voce nao possui nenhuma atividade atrelada a esta conta" << endl;
 
   for (const auto &atividade : atividades)
   {
-    cout << "Código: " << atividade.get("codigo").getValor() << endl;
+    cout << "Codigo: " << atividade.get("codigo").getValor() << endl;
     cout << "Nome: " << atividade.get("nome").getValor() << endl;
     cout << "Data: " << atividade.get("data").getValor() << endl;
-    cout << "Horário: " << atividade.get("horario").getValor() << endl;
-    cout << "Duração: " << atividade.get("duracao").getValor() << endl;
-    cout << "Preço: " << atividade.get("preco").getValor() << endl;
-    cout << "Avaliação: " << atividade.get("avaliacao").getValor() << endl;
+    cout << "Horario: " << atividade.get("horario").getValor() << endl;
+    cout << "Duracao: " << atividade.get("duracao").getValor() << endl;
+    cout << "Preco: " << atividade.get("preco").getValor() << endl;
+    cout << "Avaliacao: " << atividade.get("avaliacao").getValor() << endl;
     cout << "//////////////////////" << endl;
   }
 }

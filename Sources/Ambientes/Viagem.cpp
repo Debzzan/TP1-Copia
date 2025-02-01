@@ -20,7 +20,7 @@ void AmbienteViagem::Executar(Codigo &CodigoUsuario)
       cout << "4 - Listar viagens existentes" << endl;
       cout << "5 - Consultar viagem existentes" << endl;
       cout << "6 - Retornar ao HUB" << endl;
-      cout << "Escolha uma opção (1 a 6): ";
+      cout << "Escolha uma opcao (1 a 6): ";
       string option;
       cin >> option;
 
@@ -53,23 +53,23 @@ void AmbienteViagem::Executar(Codigo &CodigoUsuario)
       }
         else
         {
-          cout << "Opção inválida" << endl;
+          cout << "Opcao invalida" << endl;
           Executar(CodigoUsuario);
         }
 
       cout << endl
-           << "***** OPERAÇÃO FEITA COM SUCESSO *****" << endl
+           << "***** OPERACAO FEITA COM SUCESSO *****" << endl
            << endl;
     }
     catch (const std::exception &e)
     {
       cout << endl
-           <<  "****** FALHA NA OPERAÇÃO ******" << endl;
+           <<  "****** FALHA NA OPERACAO ******" << endl;
       cout << e.what() << endl;
       cout << "********************************" << endl;
     }
 
-    cout << "Pressione Enter para continuar.";
+    cout << "Pressione qualquer tecla para continuar.";
     cin.ignore();
     cin.get();
   }
@@ -98,7 +98,7 @@ void AmbienteViagem::Atualizar()
   cout << "//////////////////////" << endl;
   cout << "   Atualizar viagem" << endl;
   cout << "//////////////////////" << endl;
-  cout << "1 - Digite o código da viagem a ser atualizada: ";
+  cout << "1 - Digite o codigo da viagem a ser atualizada: ";
   cin >> CodigoViagemDominio;
     codigo = Codigo(CodigoViagemDominio);
 
@@ -108,7 +108,7 @@ void AmbienteViagem::Atualizar()
     Nome NomeDominio = Nome(nome);
 
   string avaliacao;
-  cout << "3 - Digite a nova avaliação da viagem: ";
+  cout << "3 - Digite a nova avaliacao da viagem: ";
   cin >> avaliacao;
     Avaliacao AvaliacaoDominio = Avaliacao(avaliacao);
     
@@ -123,7 +123,7 @@ void AmbienteViagem::Remover()
   cout << "//////////////////////" << endl;
   cout << "    Deletar viagem" << endl;
   cout << "//////////////////////" << endl;
-  cout << "1 - Digite o código da viagem: ";
+  cout << "1 - Digite o codigo da viagem: ";
   cin >> CodigoViagemDominio;
     codigo = Codigo(CodigoViagemDominio);
     
@@ -139,13 +139,13 @@ void AmbienteViagem::ListarTudo()
   vector<Viagem> viagens = ServicoViagem->LerTudo(CodigoUsuario);
 
     if (viagens.size() == 0)
-        cout << "Você não possui viagens atreladas a esta conta" << endl;
+        cout << "Você nao possui viagens atreladas a esta conta" << endl;
 
   for (const auto &viagem : viagens)
   {
-    cout << "Código: " << viagem.get("codigo").getValor() << endl;
+    cout << "Codigo: " << viagem.get("codigo").getValor() << endl;
     cout << "Nome: " << viagem.get("nome").getValor() << endl;
-    cout << "Avaliação: " << viagem.get("avaliacao").getValor() << endl;
+    cout << "Avaliacao: " << viagem.get("avaliacao").getValor() << endl;
     cout << "//////////////////////" << endl;
   }
 }
@@ -168,15 +168,15 @@ void AmbienteViagem::ListaDestinos(Codigo CodigoViagem)
   vector<Destino> destinos = ServicoViagem->ListaDestinos(CodigoUsuario, CodigoViagem);
 
   if (destinos.size() == 0)
-    cout << "Você não possui destinos atrelados a esta viagem" << endl;
+    cout << "Voce nao possui destinos atrelados a esta viagem" << endl;
 
   for (int i = 0; i < destinos.size(); i++)
   {
-    cout << "Código: " << destinos[i].get("codigo").getValor() << endl;
+    cout << "Codigo: " << destinos[i].get("codigo").getValor() << endl;
     cout << "Nome: " << destinos[i].get("nome").getValor() << endl;
-    cout << "Data de Início: " << destinos[i].get("chegada").getValor() << endl;
+    cout << "Data de Inicio: " << destinos[i].get("chegada").getValor() << endl;
     cout << "Data de Fim: " << destinos[i].get("partida").getValor() << endl;
-    cout << "Avaliação: " << destinos[i].get("avaliacao").getValor() << endl;
+    cout << "Avaliacao: " << destinos[i].get("avaliacao").getValor() << endl;
     cout << "//////////////////////" << endl;
   }
 }
@@ -190,17 +190,17 @@ void AmbienteViagem::ListaAtividades(Codigo CodigoDestino)
   vector<Atividade> atividades = ServicoViagem->ListaAtividades(CodigoUsuario, CodigoDestino);
 
   if (atividades.size() == 0)
-    cout << "Você não possui atividades atreladas a este destino" << endl;
+    cout << "Voce nao possui atividades atreladas a este destino" << endl;
 
   for (int i = 0; i < atividades.size(); i++)
   {
-    cout << "Código: " << atividades[i].get("codigo").getValor() << endl;
+    cout << "Codigo: " << atividades[i].get("codigo").getValor() << endl;
     cout << "Nome: " << atividades[i].get("nome").getValor() << endl;
     cout << "Data: " << atividades[i].get("data").getValor() << endl;
-    cout << "Horário: " << atividades[i].get("horario").getValor() << endl;
-    cout << "Duração: " << atividades[i].get("duracao").getValor() << endl;
-    cout << "Preço: " << atividades[i].get("preco").getValor() << endl;
-    cout << "Avaliação: " << atividades[i].get("avaliacao").getValor() << endl;
+    cout << "Horario: " << atividades[i].get("horario").getValor() << endl;
+    cout << "Duracao: " << atividades[i].get("duracao").getValor() << endl;
+    cout << "Preco: " << atividades[i].get("preco").getValor() << endl;
+    cout << "Avaliacao: " << atividades[i].get("avaliacao").getValor() << endl;
   }
 }
 
@@ -213,14 +213,14 @@ void AmbienteViagem::ListaHospedagens(Codigo CodigoDestino)
   vector<Hospedagem> hospedagens = ServicoViagem->ListaHospedagems(CodigoUsuario, CodigoDestino);
 
   if (hospedagens.size() == 0)
-    cout << "Você não possui hospedagens atreladas a este destino" << endl;
+    cout << "Voce nao possui hospedagens atreladas a este destino" << endl;
 
   for (int i = 0; i < hospedagens.size(); i++)
   {
-    cout << "Código: " << hospedagens[i].get("codigo").getValor() << endl;
+    cout << "Codigo: " << hospedagens[i].get("codigo").getValor() << endl;
     cout << "Nome: " << hospedagens[i].get("nome").getValor() << endl;
-    cout << "Diária: " << hospedagens[i].get("precodiaria").getValor() << endl;
-    cout << "Avaliação: " << hospedagens[i].get("avaliacao").getValor() << endl;
+    cout << "Diaria: " << hospedagens[i].get("precodiaria").getValor() << endl;
+    cout << "Avaliacao: " << hospedagens[i].get("avaliacao").getValor() << endl;
   }
 }
 
@@ -238,7 +238,7 @@ void AmbienteViagem::ConsultaDestino()
       cout << "  Consultar destino" << endl;
       cout << "//////////////////////" << endl;
 
-      cout << "Digite o código do destino: ";
+      cout << "Digite o codigo do destino: ";
       if (CodigoDestino == "")
       {
         cin >> CodigoDestino;
@@ -249,7 +249,7 @@ void AmbienteViagem::ConsultaDestino()
 
       while (CodigoDestinoDominio.getValor() != CodigoDestino)
       {
-        cout << "Digite o código da viagem: ";
+        cout << "Digite o codigo da viagem: ";
         cin >> CodigoDestino;
         CodigoDestinoDominio.setValor(CodigoDestino);
       }
@@ -282,13 +282,13 @@ void AmbienteViagem::ConsultaDestino()
         }
 
       cout << endl
-           << "***** OPERAÇÃO FEITA COM SUCESSO *****" << endl
+           << "***** OPERACAO FEITA COM SUCESSO *****" << endl
            << endl;
     }
     catch (const std::exception &e)
     {
       cout << endl
-           <<  "****** FALHA NA OPERAÇÃO ******" << endl;
+           <<  "****** FALHA NA OPERACAO ******" << endl;
       cout << e.what() << endl;
       cout << "********************************" << endl;
     }
@@ -311,7 +311,7 @@ void AmbienteViagem::ConsultaViagem()
       cout << "//////////////////////" << endl;
       cout << "   Consultar viagem" << endl;
       cout << "//////////////////////" << endl;
-      cout << "Digite o código da viagem: ";
+      cout << "Digite o codigo da viagem: ";
       if (CodigoViagem == "")
       {
         cin >> CodigoViagem;
@@ -322,7 +322,7 @@ void AmbienteViagem::ConsultaViagem()
 
       while (CodigoViagemDominio.getValor() != CodigoViagem)
       {
-        cout << "Digite o código da viagem: ";
+        cout << "Digite o codigo da viagem: ";
         cin >> CodigoViagem;
         CodigoViagemDominio.setValor(CodigoViagem);
         
@@ -360,13 +360,13 @@ void AmbienteViagem::ConsultaViagem()
         }
 
       cout << endl
-           << "***** OPERAÇÃO FEITA COM SUCESSO *****" << endl
+           << "***** OPERACAO FEITA COM SUCESSO *****" << endl
            << endl;
     }
     catch (const std::exception &e)
     {
       cout << endl
-           <<  "****** FALHA NA OPERAÇÃO ******" << endl;
+           <<  "****** FALHA NA OPERACAO ******" << endl;
       cout << e.what() << endl;
       cout << "********************************" << endl;
     }

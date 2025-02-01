@@ -8,8 +8,10 @@
 #include "../Includes/Servicos/Conta.hpp"
 #include "../Includes/Ambientes/Conta.hpp"
 
+
 int main()
 {
+
   Modelo modelo = Modelo();
   modelo.CriarTables();
 

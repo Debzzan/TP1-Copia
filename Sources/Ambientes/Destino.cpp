@@ -18,7 +18,7 @@ void AmbienteDestino::Executar(Codigo &CodigoUsuario)
       cout << "3 - Atualizar destino" << endl;
       cout << "4 - Deletar destino" << endl;
       cout << "5 - Retornar ao HUB" << endl;
-      cout << "Escolha uma das opções acima (1 a 5): ";
+      cout << "Escolha uma das opcoes acima (1 a 5): ";
       string option;
       cin >> option;
 
@@ -46,7 +46,7 @@ void AmbienteDestino::Executar(Codigo &CodigoUsuario)
       }
         else
         {
-          cout << "Opção inválida" << endl;
+          cout << "Opcao invalida" << endl;
               cout << "Pressione qualquer tecla para continuar.";
               cin.ignore();
               cin.get();
@@ -54,13 +54,13 @@ void AmbienteDestino::Executar(Codigo &CodigoUsuario)
         }
 
       cout << endl
-           << "***** OPERAÇÃO FEITA COM SUCESSO *****" << endl
+           << "***** OPERACAO FEITA COM SUCESSO *****" << endl
            << endl;
     }
     catch (const std::exception &e)
     {
       cout << endl
-           << "****** FALHA NA OPERAÇÃO ******" << endl;
+           << "****** FALHA NA OPERACAO ******" << endl;
       cout << e.what() << endl;
       cout << "********************************" << endl
            << endl;
@@ -95,7 +95,7 @@ void AmbienteDestino::Criar()
 
   ChegadaDominio.CalcularAlcanceDatas(ChegadaDominio.getValor(), PartidaDominio.getValor());
 
-  cout << "4 - Digite o código da viagem a ser atrelada: ";
+  cout << "4 - Digite o codigo da viagem a ser atrelada: ";
   cin >> CodigoViagem;
   Codigo CodigoViagemDominio = Codigo(CodigoViagem);
 
@@ -112,15 +112,15 @@ void AmbienteDestino::Ler()
   vector<Destino> Destinos = ServicoDestino->Ler(CodigoUsuario);
 
   if (Destinos.size() == 0)
-    cout << "Você não possui destinos atrelado a esta conta" << endl;
+    cout << "Você nao possui destinos atrelado a esta conta" << endl;
 
   for (const auto &destino : Destinos)
   {
-    cout << "Código: " << destino.get("codigo").getValor() << endl;
+    cout << "Codigo: " << destino.get("codigo").getValor() << endl;
     cout << "Nome: " << destino.get("nome").getValor() << endl;
     cout << "Data inicial: " << destino.get("chegada").getValor() << endl;
     cout << "Data final: " << destino.get("partida").getValor() << endl;
-    cout << "Avaliação: " << destino.get("avaliacao").getValor() << endl;
+    cout << "Avaliacao: " << destino.get("avaliacao").getValor() << endl;
     cout << "//////////////////////" << endl;
   }
 }
@@ -131,7 +131,7 @@ void AmbienteDestino::Atualizar()
   cout << "//////////////////////" << endl;
   cout << "  Atualizar destino" << endl;
   cout << "//////////////////////" << endl;
-  cout << "1 - Digite o código do destino a ser atualizado: ";
+  cout << "1 - Digite o codigo do destino a ser atualizado: ";
   cin >> CodigoDestino;
   Codigo CodigoDominio = Codigo(CodigoDestino);
 
@@ -150,7 +150,7 @@ void AmbienteDestino::Atualizar()
 
   ChegadaDominio.CalcularAlcanceDatas(ChegadaDominio.getValor(), PartidaDominio.getValor());
 
-  cout << "5 - Digite a nova avaliação do destino: ";
+  cout << "5 - Digite a nova avaliacao do destino: ";
   cin >> avaliacao;
   Avaliacao AvaliacaoDominio = Avaliacao(avaliacao);
 
@@ -166,7 +166,7 @@ void AmbienteDestino::Remover()
   cout << "//////////////////////" << endl;
   cout << "   Deletar destino" << endl;
   cout << "//////////////////////" << endl;
-  cout << "1 - Digite o código do destino: ";
+  cout << "1 - Digite o codigo do destino: ";
   cin >> CodigoDestino;
   Codigo codigo = Codigo(CodigoDestino);
   

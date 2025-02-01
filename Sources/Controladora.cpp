@@ -54,7 +54,7 @@ void Controladora::Executar()
         cout << "4 - Ambiente Hospedagens" << endl;
         cout << "5 - Ambiente Atividades" << endl;
         cout << "6 - Sair do APP" << endl;
-        cout << "Escolha uma das opções (1 a 6): ";
+        cout << "Escolha uma das opcoes (1 a 6): ";
         string option;
         cin >> option;
 
@@ -74,8 +74,8 @@ void Controladora::Executar()
           break;
         else
         {
-          cout << "Opção inválida" << endl;
-          cout << "Pressione qualquer tecla para continuar...";
+          cout << "Opcao invalida" << endl;
+          cout << "Pressione qualquer tecla para continuar.";
           cin.ignore();
           cin.get();
         }
@@ -83,7 +83,7 @@ void Controladora::Executar()
       else
       {
         cout << "2 - Sair" << endl;
-        cout << "Escolha uma opção (1 a 2): ";
+        cout << "Escolha uma opcao (1 a 2): ";
         int option;
         cin >> option;
 
@@ -96,26 +96,26 @@ void Controladora::Executar()
           break;
         else
         {
-          cout << "Opção inválida" << endl;
-          cout << "Pressione qualquer tecla para continuar...";
+          cout << "Opcao invalida" << endl;
+          cout << "Pressione qualquer tecla para continuar.";
           cin.ignore();
           cin.get();
         }
       }
 
       cout << endl
-           << "***** OPERAÇÃO FEITA COM SUCESSO *****" << endl
+           << "***** OPERACAO FEITA COM SUCESSO *****" << endl
            << endl;
     }
     catch (const std::exception &e)
     {
       cout << endl
-           <<  "****** FALHA NA OPERAÇÃO ******" << endl;
+           <<  "****** FALHA NA OPERACAO ******" << endl;
       cout << e.what() << endl;
       cout << "********************************" << endl;
     }
 
-    cout << "Pressione qualquer tecla para continuar...";
+    cout << "Pressione qualquer tecla para continuar.";
     cin.ignore();
     cin.get();
   }
