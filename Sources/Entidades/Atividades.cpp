@@ -25,7 +25,7 @@ void Atividade::set(const Dominio &dominio, string NomeProprio)
   {
     this->duracao = static_cast<const Duracao &>(dominio);
   }
-  else if (NomeProprio == "price")
+  else if (NomeProprio == "preco")
   {
     this->preco = static_cast<const Dinheiro &>(dominio);
   }

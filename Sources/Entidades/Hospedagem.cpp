@@ -1,7 +1,7 @@
 #include "../../Includes/Entidades/Hospedagem.hpp"
 
-Hospedagem::Hospedagem(const Codigo &codigo, const Nome &nome, const Dinheiro &ValorDiaria, const Avaliacao &avaliacao)
-    : codigo(codigo), nome(nome), ValorDiaria(ValorDiaria), avaliacao(avaliacao) {}
+Hospedagem::Hospedagem(const Codigo &codigo, const Nome &nome, const Dinheiro &precodiaria, const Avaliacao &avaliacao)
+    : codigo(codigo), nome(nome), precodiaria(precodiaria), avaliacao(avaliacao) {}
 
 void Hospedagem::set(const Dominio &dominio, string NomeProprio)
 {
@@ -13,9 +13,9 @@ void Hospedagem::set(const Dominio &dominio, string NomeProprio)
     {
         this->nome = static_cast<const Nome &>(dominio);
     }
-    else if (NomeProprio == "valordiaria")
+    else if (NomeProprio == "precodiaria")
     {
-        this->ValorDiaria = static_cast<const Dinheiro &>(dominio);
+        this->precodiaria = static_cast<const Dinheiro &>(dominio);
     }
     else if (NomeProprio == "avaliacao")
     {
@@ -37,9 +37,9 @@ const Dominio &Hospedagem::get(const string NomeProprio) const
     {
         return this->nome;
     }
-    else if (NomeProprio == "valordiaria")
+    else if (NomeProprio == "precodiaria")
     {
-        return this->ValorDiaria;
+        return this->precodiaria;
     }
     else if (NomeProprio == "avaliacao")
     {

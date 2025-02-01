@@ -14,11 +14,11 @@ private:
 
     Codigo codigo;
     Nome nome;
-    Dinheiro ValorDiaria;
+    Dinheiro precodiaria;
     Avaliacao avaliacao;
 
 public:
-    Hospedagem(const Codigo &codigo, const Nome &nome, const Dinheiro &ValorDiaria, const Avaliacao &Avaliacao);
+    Hospedagem(const Codigo &codigo, const Nome &nome, const Dinheiro &precodiaria, const Avaliacao &Avaliacao);
 
     void set(const Dominio &dominio, string NomeProprio) override;
 

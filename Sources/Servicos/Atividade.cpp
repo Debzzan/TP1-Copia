@@ -1,46 +1,72 @@
 #include "../../Includes/Servicos/Atividade.hpp"
 
-void ModeloAtividade::Criar(Codigo &CodigoUsuario, Codigo &CodigoAtividadeDestino, Atividade &NovaAtividade)
-{
-  ComandoSQL = "SELECT codigodestino FROM destino WHERE codigo = '" + CodigoAtividadeDestino.getValor() + "';";
-  results.clear();
-  this->Executar();
+void ModeloAtividade::Criar(Codigo &CodigoUsuario, Codigo &CodigoAtividadeDestino, Atividade &NovaAtividade) {
+    sqlite3_stmt *stmt;
+    string codigodestino;
 
-  ComandoSQL = "SELECT codigoconta FROM viagem WHERE codigo = '" + results[0]["codigodestino"] + "';";
-  results.clear();
-  this->Executar();
 
-  if (results.empty() || results[0]["codigoconta"] != CodigoUsuario.getValor())
-  {
-    throw invalid_argument("Destino não existente ou pertencente a outra conta");
-  }
+    ComandoSQL = "SELECT codigoviagem FROM destino WHERE codigo = ?";
+    sqlite3_prepare_v2(db, ComandoSQL.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_text(stmt, 1, CodigoAtividadeDestino.getValor().c_str(), -1, SQLITE_STATIC);
 
-  ComandoSQL = "SELECT chegada, partida FROM destino WHERE codigo = '" + CodigoAtividadeDestino.getValor() + "';";
-  results.clear();
-  this->Executar();
+    if (sqlite3_step(stmt) == SQLITE_ROW) {
+        codigodestino = reinterpret_cast<const char *>(sqlite3_column_text(stmt, 0));
+    } else {
+        sqlite3_finalize(stmt);
+        throw invalid_argument("Destino não encontrado");
+    }
+    sqlite3_finalize(stmt);
 
-  if (!Data::AlcanceDatas(NovaAtividade.get("data").getValor(), results[0]["chegada"], results[0]["partida"]))
-  {
-    throw invalid_argument("Data da atividade fora do intervalo do destino");
-  }
+    ComandoSQL = "SELECT codigoconta FROM viagem WHERE codigo = ?";
+    sqlite3_prepare_v2(db, ComandoSQL.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_text(stmt, 1, codigodestino.c_str(), -1, SQLITE_STATIC);
 
-  string AtividadeCodigo = NovaAtividade.get("codigo").getValor();
-  string AtividadeNome = NovaAtividade.get("nome").getValor();
-  string AtividadeData = NovaAtividade.get("data").getValor();
-  string AtividadeHorario = NovaAtividade.get("horario").getValor();
-  string AtividadeDuracao = NovaAtividade.get("duracao").getValor();
-  string AtividadePreco = NovaAtividade.get("preco").getValor();
-  string AtividadeAvaliacao = NovaAtividade.get("avaliacao").getValor();
+    if (sqlite3_step(stmt) != SQLITE_ROW || CodigoUsuario.getValor() != reinterpret_cast<const char *>(sqlite3_column_text(stmt, 0))) {
+        sqlite3_finalize(stmt);
+        throw invalid_argument("Destino não existente ou pertencente a outra conta");
+    }
+    sqlite3_finalize(stmt);
 
-  ComandoSQL = "INSERT INTO atividade (codigo, nome, data, horario, duracao, preco, avaliacao, codigodestino) VALUES ('" + AtividadeCodigo + "', '" + AtividadeNome + "', '" + AtividadeData + "', '" + AtividadeHorario + "', '" + AtividadeDuracao + "', '" + AtividadePreco + "', '" + AtividadeAvaliacao + "', '" + CodigoAtividadeDestino.getValor() + "');";
-  results.clear();
-  this->Executar();
 
-  if (status != SQLITE_OK)
-  {
-    throw invalid_argument("Erro criação atividade");
-  }
+    string chegada, partida;
+    ComandoSQL = "SELECT chegada, partida FROM destino WHERE codigo = ?";
+    sqlite3_prepare_v2(db, ComandoSQL.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_text(stmt, 1, CodigoAtividadeDestino.getValor().c_str(), -1, SQLITE_STATIC);
+
+    if (sqlite3_step(stmt) == SQLITE_ROW) {
+        chegada = reinterpret_cast<const char *>(sqlite3_column_text(stmt, 0));
+        partida = reinterpret_cast<const char *>(sqlite3_column_text(stmt, 1));
+    } else {
+        sqlite3_finalize(stmt);
+        throw invalid_argument("Erro ao obter datas do destino");
+    }
+    sqlite3_finalize(stmt);
+
+    if (!Data::AlcanceDatas(NovaAtividade.get("data").getValor(), chegada, partida)) {
+        throw invalid_argument("Data da atividade fora do intervalo do destino");
+    }
+
+    ComandoSQL = "INSERT INTO atividade (codigo, nome, data, horario, duracao, preco, avaliacao, codigodestino) "
+                 "VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
+    sqlite3_prepare_v2(db, ComandoSQL.c_str(), -1, &stmt, nullptr);
+
+    sqlite3_bind_text(stmt, 1, NovaAtividade.get("codigo").getValor().c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, NovaAtividade.get("nome").getValor().c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 3, NovaAtividade.get("data").getValor().c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 4, NovaAtividade.get("horario").getValor().c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 5, NovaAtividade.get("duracao").getValor().c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 6, NovaAtividade.get("preco").getValor().c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 7, NovaAtividade.get("avaliacao").getValor().c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 8, CodigoAtividadeDestino.getValor().c_str(), -1, SQLITE_STATIC);
+
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
+        sqlite3_finalize(stmt);
+        throw invalid_argument("Erro na criação da atividade");
+    }
+
+    sqlite3_finalize(stmt);
 }
+
 
 void ModeloAtividade::Atualizar(Codigo &CodigoUsuario, Codigo &CodigoAtividade, Atividade &AtividadeAtualizada)
 {
