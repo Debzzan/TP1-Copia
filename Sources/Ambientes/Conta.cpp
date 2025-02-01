@@ -16,18 +16,21 @@ void AmbienteConta::Executar(Codigo &CodigoUsuario)
         cout << "//////////////////////" << endl;
         cout << "    Ambiente Conta" << endl;
         cout << "//////////////////////" << endl;
-        cout << "1 - Retornar/Continuar" << endl;
-        cout << "2 - Sair" << endl;
-        cout << "Escolha uma opção (1 a 2): ";
+        cout << "1 - Continuar para HUB" << endl;
+        cout << "2 - Informacao da conta" << endl;         
+        cout << "3 - Sair" << endl;   
+        cout << "Escolha uma opção (1 a 3): ";
         int option;
         cin >> option;
 
         cout << "\033[2J\033[1;1H";
 
         if (option == 2)
-          Sair();
+          Ler(CodigoUsuario);
         else if (option == 1)
           return;
+        else if (option == 3)
+          Sair();
         else
         {
           cout << "Opção inválida" << endl;
@@ -37,7 +40,7 @@ void AmbienteConta::Executar(Codigo &CodigoUsuario)
       else
       {
         cout << "   //////////////////////" << endl;
-        cout << "Ambiente Conta - Novo Usuario" << endl;
+        cout << "       Ambiente Conta" << endl;
         cout << "   //////////////////////" << endl;
         cout << "1 - Criar conta" << endl;
         cout << "2 - Entrar" << endl;
@@ -60,7 +63,7 @@ void AmbienteConta::Executar(Codigo &CodigoUsuario)
         }
         else if (option == "3")
         {
-          Sair();
+          break;
         }
         else
         {
@@ -136,5 +139,14 @@ void AmbienteConta::Autenticar()
 void AmbienteConta::Sair()
 {
   CodigoUsuario.setValor("000000");
-  return;
+  cout << "Você saiu da sua conta." << endl;
+}
+
+void AmbienteConta::Ler(Codigo &CodigoUsuario)
+{
+  string Codigo = CodigoUsuario.getValor();
+  cout << "//////////////////////" << endl;
+  cout << "Código do usuário: " << Codigo << endl;
+  cout << "//////////////////////" << endl;
+
 }

@@ -24,6 +24,8 @@ public:
 
     void Sair();
 
+    void Ler(Codigo &CodigoUsuario);
+
     void Executar(Codigo &CodigoUsuario);
 
     ~AmbienteConta() override
