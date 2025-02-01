@@ -1,7 +1,7 @@
 #ifndef MODELO_INTERFACE_HPP
 #define MODELO_INTERFACE_HPP
 
-#include <sqlite3.h>
+#include "sqlite3.h"
 #include <bits/stdc++.h>
 using namespace std;
 

@@ -92,9 +92,14 @@ void Controladora::Executar()
         if (option == 1)
 
             this->AmbienteConta->Executar(this->CodigoUsuario);
+        else if (option == 2)
+          break;
         else
         {
-          break;
+          cout << "Opção inválida" << endl;
+          cout << "Pressione qualquer tecla para continuar...";
+          cin.ignore();
+          cin.get();
         }
       }
 
