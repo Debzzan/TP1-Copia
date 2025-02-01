@@ -8,7 +8,7 @@
  * @class ModeloConta
  * @brief Classe que implementa a interface de serviço de conta.
  * 
- * Esta classe herda de InterfaceServicoConta e Modelo, e implementa os métodos para autenticar e criar contas de usuário.
+ * Esta classe herda de InterfaceServicoConta e Modelo, e implementa os métodos para autenticar e criar contas de usuário. 
  */
 class ModeloConta : public InterfaceServicoConta, public Modelo
 {

@@ -24,7 +24,7 @@ public:
   /**
    * @brief Lê todas as hospedagens do usuário.
    * @param CodigoUsuario Código do usuário.
-   * @return vector<Hospedagem> Vetor contendo as hospedagens do usuário.
+   * @return vector<Hospedagem> Vetor contendo as hospedagens do usuário. 
    */
   vector<Hospedagem> Ler(Codigo &CodigoUsuario) override;
 

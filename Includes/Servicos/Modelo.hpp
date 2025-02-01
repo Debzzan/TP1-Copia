@@ -7,7 +7,7 @@ using namespace std;
 
 /**
  * @class Modelo
- * @brief Classe base para a interação com o banco de dados SQLite.
+ * @brief Classe base para a interação com o banco de dados SQLite. 
  * 
  * Esta classe fornece métodos para criar tabelas e executar comandos SQL.
  */

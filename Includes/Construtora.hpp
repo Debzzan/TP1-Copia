@@ -18,10 +18,20 @@
 #include "../Includes/Servicos/Atividade.hpp"
 #include "../Includes/Ambientes/Atividade.hpp"
 
+/**
+ * @class Construtora
+ * @brief Classe responsável pela construção das controladoras e serviços.
+ * 
+ * Esta classe fornece um método para construir e inicializar as controladoras com os serviços apropriados. 
+ */
 class Construtora
 {
 public:
+  /**
+   * @brief Constrói e inicializa as controladoras com os serviços apropriados.
+   * @param controladora Ponteiro para a controladora a ser construída.
+   */
   void construir(Controladora *controladora);
 };
 
-#endif 
+#endif

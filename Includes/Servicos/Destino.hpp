@@ -24,7 +24,7 @@ public:
   /**
    * @brief Atualiza um destino existente.
    * @param CodigoUsuario Código do usuário.
-   * @param CodigoDestino Código do destino a ser atualizado.
+   * @param CodigoDestino Código do destino a ser atualizado. 
    * @param DestinoAtualizado Destino atualizado.
    */
   void Atualizar(Codigo &CodigoUsuario, Codigo &CodigoDestino, Destino &DestinoAtualizado) override;
