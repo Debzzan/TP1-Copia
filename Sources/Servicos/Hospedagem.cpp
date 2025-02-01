@@ -1,37 +1,51 @@
 #include "../../Includes/Servicos/Hospedagem.hpp"
 
 
-void ModeloHospedagem::Criar(Codigo &CodigoUsuario, Codigo &CodigoHospedagemDestino, Hospedagem &NovaHospedagem)
-{
-    ComandoSQL = "SELECT codigoviagem FROM destino WHERE codigo = '" + CodigoHospedagemDestino.getValor() + "';";
-    results.clear();
-    this->Executar();
+void ModeloHospedagem::Criar(Codigo &CodigoUsuario, Codigo &CodigoHospedagemDestino, Hospedagem &NovaHospedagem) {
+    sqlite3_stmt *stmt;
 
-    ComandoSQL = "SELECT codigoconta from viagem WHERE codigo = '" + results[0]["codigoviagem"] + "';";
+    ComandoSQL = "SELECT codigoviagem FROM destino WHERE codigo = ?";
     results.clear();
-    this->Executar();
+    sqlite3_prepare_v2(db, ComandoSQL.c_str(), -1, &stmt, nullptr);
+    sqlite3_bind_text(stmt, 1, CodigoHospedagemDestino.getValor().c_str(), -1, SQLITE_STATIC);
+    
+    if (sqlite3_step(stmt) == SQLITE_ROW) {
+        string codigoViagem = reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0));
+        sqlite3_finalize(stmt);
 
-    if (results.empty() || results[0]["codigoconta"] != CodigoUsuario.getValor())
-    {
-        throw invalid_argument("Viagem não existente ou pertencente a outra conta");
+        ComandoSQL = "SELECT codigoconta FROM viagem WHERE codigo = ?";
+        sqlite3_prepare_v2(db, ComandoSQL.c_str(), -1, &stmt, nullptr);
+        sqlite3_bind_text(stmt, 1, codigoViagem.c_str(), -1, SQLITE_STATIC);
+        
+        if (sqlite3_step(stmt) != SQLITE_ROW || 
+            CodigoUsuario.getValor() != reinterpret_cast<const char*>(sqlite3_column_text(stmt, 0))) {
+            sqlite3_finalize(stmt);
+            throw invalid_argument("Viagem não existente ou pertencente a outra conta");
+        }
+    } else {
+        sqlite3_finalize(stmt);
+        throw invalid_argument("Destino não encontrado");
+    }
+    sqlite3_finalize(stmt);
+
+    ComandoSQL = "INSERT INTO hospedagem (codigo, nome, precodiaria, avaliacao, codigodestino) "
+                 "VALUES (?, ?, ?, ?, ?)";
+    sqlite3_prepare_v2(db, ComandoSQL.c_str(), -1, &stmt, nullptr);
+
+    sqlite3_bind_text(stmt, 1, NovaHospedagem.get("codigo").getValor().c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 2, NovaHospedagem.get("nome").getValor().c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 3, NovaHospedagem.get("precodiaria").getValor().c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 4, NovaHospedagem.get("avaliacao").getValor().c_str(), -1, SQLITE_STATIC);
+    sqlite3_bind_text(stmt, 5, CodigoHospedagemDestino.getValor().c_str(), -1, SQLITE_STATIC);
+
+    if (sqlite3_step(stmt) != SQLITE_DONE) {
+        sqlite3_finalize(stmt);
+        throw invalid_argument("Erro na criação da hospedagem");
     }
 
-
-
-    string CodigoHospedagem = NovaHospedagem.get("codigo").getValor();
-    string NomeHospedagem = NovaHospedagem.get("nome").getValor();
-    string PrecoDiariaHospedagem = NovaHospedagem.get("precodiaria").getValor();
-    string AvaliacaoHospedagem = NovaHospedagem.get("avaliacao").getValor();
-
-    ComandoSQL = "INSERT INTO hospedagem (codigo, nome, precodiaria, avaliacao, codigodestino) VALUES ('" + CodigoHospedagem + "', '" + NomeHospedagem + "', '" + PrecoDiariaHospedagem + "', '" + AvaliacaoHospedagem + "', '" + CodigoHospedagemDestino.getValor() + "');";
-    results.clear();
-    this->Executar();
-
-  if (status != SQLITE_OK)
-  {
-    throw invalid_argument("Erro na criação da hospedagem");
-  }
+    sqlite3_finalize(stmt);
 }
+
 
 void ModeloHospedagem::Atualizar(Codigo &CodigoUsuario, Codigo &CodigoHospedagem, Hospedagem &HospedagemAtualizada)
 {

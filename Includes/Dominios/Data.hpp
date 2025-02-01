@@ -1,5 +1,5 @@
-#ifndef DATA_DOMAIN_INTERFACE_H
-#define DATA_DOMAIN_INTERFACE_H
+#ifndef DATA_DOMAIN_INTERFACE_HPP
+#define DATA_DOMAIN_INTERFACE_HPP
 #include "./Dominio.hpp"
 
 class Data: public Dominio
@@ -11,19 +11,19 @@ private:
   static const int MesMaximo = 12;
   static const int AnoMaximo = 99;
 
-  void validar(string value) override;
+  void validar(string valor) override;
 
 public:
-  Data(string value);
+  Data(string valor);
 
   static int CalcularAlcanceDatas(string DataInicial, string DataFinal);
 
   static bool AlcanceDatas(string date, string DataInicial, string DataFinal);
 };
 
-inline Data::Data(string value)
+inline Data::Data(string valor)
 {
-  this->setValor(value);
+  this->setValor(valor);
 }
 
-#endif // DATE_DOMAIN_INTERFACE_H
+#endif 

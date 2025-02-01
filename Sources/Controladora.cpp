@@ -76,7 +76,7 @@ void Controladora::Executar()
       else
       {
         cout << "2 - Sair" << endl;
-        cout << "Escolha uma opção: ";
+        cout << "Escolha uma opção (1 a 2): ";
         int option;
         cin >> option;
 
@@ -103,7 +103,7 @@ void Controladora::Executar()
       cout << "********************************" << endl;
     }
 
-    cout << "Pressione Enter para continuar...";
+    cout << "Pressione qualquer tecla para continuar...";
     cin.ignore();
     cin.get();
   }

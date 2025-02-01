@@ -1,5 +1,5 @@
-#ifndef DESTINO_AMBIENTE_INTERFACE_H
-#define DESTINO_AMBIENTE_INTERFACE_H
+#ifndef DESTINO_AMBIENTE_INTERFACE_HPP
+#define DESTINO_AMBIENTE_INTERFACE_HPP
 
 #include "../Interfaces/Apresentacao.hpp"
 #include "../Interfaces/Servicos.hpp"

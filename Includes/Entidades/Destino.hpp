@@ -14,13 +14,13 @@ private:
 
     Codigo codigo;
     Nome nome;
-    Data data_chegada;
+    Data chegada;
     Avaliacao avaliacao;
-    Data data_partida;
+    Data partida;
 
 
 public:
-    Destino(const Codigo &codigo, const Nome &nome, const Data &data_chegada, const Data &data_partida, const Avaliacao &avaliacao);
+    Destino(const Codigo &codigo, const Nome &nome, const Data &chegada, const Data &partida, const Avaliacao &avaliacao);
 
     void set(const Dominio &dominio, string NomeProprio) override;
 

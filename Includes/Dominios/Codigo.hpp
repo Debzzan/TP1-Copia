@@ -1,5 +1,5 @@
-#ifndef CODIGO_DOMAIN_INTERFACE_H
-#define CODIGO_DOMAIN_INTERFACE_H
+#ifndef CODIGO_DOMAIN_INTERFACE_HPP
+#define CODIGO_DOMAIN_INTERFACE_HPP
 #include "./Dominio.hpp"
 
 class Codigo : public Dominio
@@ -7,11 +7,11 @@ class Codigo : public Dominio
 private:
   static const int TamanhoCodigo = 6;
 
-  void validar(string value) override;
+  void validar(string valor) override;
 
 public:
   Codigo();
-  Codigo(string value);
+  Codigo(string valor);
   static string GerarCodigoAleatorio();
 };
 
@@ -20,4 +20,4 @@ inline Codigo::Codigo(string valor)
   this->setValor(valor);
 }
 
-#endif // CODE_DOMAIN_INTERFACE_H
+#endif 

@@ -9,7 +9,7 @@ void ModeloDestino::Criar(Codigo &CodigoUsuario, Codigo &CodigoDestinoViagem, De
 
   if (results.empty() || results[0]["codigoconta"] != CodigoUsuario.getValor())
   {
-    throw invalid_argument("Viagem não existente ou pertencente a outra conta");
+    throw invalid_argument("Destino não existente ou pertencente a outra conta");
   }
 
   string CodigoConta = CodigoUsuario.getValor();
@@ -33,33 +33,43 @@ void ModeloDestino::Criar(Codigo &CodigoUsuario, Codigo &CodigoDestinoViagem, De
 
 void ModeloDestino::Atualizar(Codigo &CodigoUsuario, Codigo &CodigoDestino, Destino &DestinoAtualizado)
 {
-  ComandoSQL = "SELECT codigoviagem, FROM destino WHERE codigo = '" + CodigoDestino.getValor() + "';";
-  results.clear();
-  this->Executar();
 
-  ComandoSQL = "SELECT codigoconta FROM viagem WHERE codigo = '" + results[0]["codigoviagem,"] + "';";
-  results.clear();
-  this->Executar();
+    ComandoSQL = "SELECT codigoviagem FROM destino WHERE codigo = '" + CodigoDestino.getValor() + "';";
+    results.clear();
+    this->Executar();
 
-  if (results.empty() || results[0]["accountCode"] != CodigoUsuario.getValor())
-  {
-    throw invalid_argument("Destino não existente ou pertencente a outra conta");
-  }
+    if (results.empty()) {
+        throw invalid_argument("Destino não encontrado");
+    }
+
+    string codigoviagem = results[0]["codigoviagem"];
+
+
+    ComandoSQL = "SELECT codigoconta FROM viagem WHERE codigo = '" + codigoviagem + "';";
+    results.clear();
+    this->Executar();
+
+    if (results.empty() || results[0]["codigoconta"] != CodigoUsuario.getValor()) {
+        throw invalid_argument("Destino não existente ou pertencente a outra conta");
+    }
+
 
     string NomeDestino = DestinoAtualizado.get("nome").getValor();
     string ChegadaDestino = DestinoAtualizado.get("chegada").getValor();
     string PartidaDestino = DestinoAtualizado.get("partida").getValor();
     string AvaliacaoDestino = DestinoAtualizado.get("avaliacao").getValor();
 
-    ComandoSQL = "UPDATE destino SET nome = '" + NomeDestino + "', chegada = '" + ChegadaDestino + "', partida = '" + PartidaDestino + "', avaliacao = '" + AvaliacaoDestino + "' WHERE codigo = '" + CodigoDestino.getValor() + "';";
-  results.clear();
-  this->Executar();
+    ComandoSQL = "UPDATE destino SET nome = '" + NomeDestino + "', chegada = '" + ChegadaDestino +
+                 "', partida = '" + PartidaDestino + "', avaliacao = '" + AvaliacaoDestino +
+                 "' WHERE codigo = '" + CodigoDestino.getValor() + "';";
+    results.clear();
+    this->Executar();
 
-  if (status != SQLITE_OK)
-  {
-    throw invalid_argument("Erro na atualização do destino");
-  }
+    if (status != SQLITE_OK) {
+        throw invalid_argument("Erro na atualização do destino");
+    }
 }
+
 
 void ModeloDestino::Remover(Codigo &CodigoUsuario, Codigo &CodigoDestino)
 {

@@ -1,5 +1,5 @@
-#ifndef NOME_DOMAIN_INTERFACE_H
-#define NOME_DOMAIN_INTERFACE_H
+#ifndef NOME_DOMAIN_INTERFACE_HPP
+#define NOME_DOMAIN_INTERFACE_HPP
 #include "./Dominio.hpp"
 
 class Nome : public Dominio

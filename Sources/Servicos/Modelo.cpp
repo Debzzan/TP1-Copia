@@ -11,7 +11,8 @@ Modelo::Modelo()
   struct stat info;
   if (stat("./db", &info) != 0 || !(info.st_mode & S_IFDIR))
   {
-    mkdir("./db", 0777);
+    mkdir("./db", 0755);
+
   }
 
   error = sqlite3_open("./db/dev.db", &db);
@@ -90,15 +91,23 @@ void Modelo::CriarTables()
     CriarTableHospedagem();
 }
 
-Modelo::~Modelo()
-{
-  sqlite3_close(db);
-  db = nullptr;
+Modelo::~Modelo() {
+    if (db) {
+        sqlite3_close(db);
+        db = nullptr;
+    }
 }
+
 
 void Modelo::Executar()
 {
-  status = sqlite3_exec(db, ComandoSQL.c_str(), callback, nullptr, nullptr);
+    results.clear(); 
+    char *errorMsg = nullptr;
+    status = sqlite3_exec(db, ComandoSQL.c_str(), callback, nullptr, &errorMsg);
+    if (status != SQLITE_OK) {
+        cerr << "Erro ao executar SQL: " << errorMsg << endl;
+        sqlite3_free(errorMsg);
+    }
 }
 
 int Modelo::callback(void *data, int argc, char **argv, char **azColName)
@@ -106,7 +115,8 @@ int Modelo::callback(void *data, int argc, char **argv, char **azColName)
   map<string, string> row;
   for (int i = 0; i < argc; i++)
   {
-    row[azColName[i]] = argv[i] ? argv[i] : "NULL";
+    row.emplace(azColName[i], argv[i] ? argv[i] : "NULL");
+
   }
   results.push_back(row);
   return 0;

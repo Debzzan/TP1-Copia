@@ -65,10 +65,10 @@ void AmbienteConta::Executar(Codigo &CodigoUsuario)
         else
         {
           cout << "Opção inválida" << endl;
+              cout << "Pressione qualquer tecla para continuar.";
+              cin.ignore();
+              cin.get();
           Executar(CodigoUsuario);
-        }
-        {
-          return;
         }
       }
 

@@ -3,9 +3,9 @@
 void ModeloViagem::Criar(Codigo &CodigoUsuario, Viagem &NovaViagem)
 {
   string CodigoConta = CodigoUsuario.getValor();
-  string CodigoViagem = NovaViagem.get("code").getValor();
-  string NomeViagem = NovaViagem.get("name").getValor();
-  string AvaliacaoViagem = NovaViagem.get("rating").getValor();
+  string CodigoViagem = NovaViagem.get("codigo").getValor();
+  string NomeViagem = NovaViagem.get("nome").getValor();
+  string AvaliacaoViagem = NovaViagem.get("avaliacao").getValor();
   ComandoSQL = "INSERT INTO viagem (codigo, nome, avaliacao, codigoconta) VALUES ('" + CodigoViagem + "', '" + NomeViagem + "', '" + AvaliacaoViagem + "', '" + CodigoConta + "');";
   results.clear();
   this->Executar();

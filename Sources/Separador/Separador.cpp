@@ -1,4 +1,4 @@
-#include "Separador.hpp"
+#include "../../Includes/Separador/Separador.hpp"
 
 vector<string> Separador::split(const string &str, const char *delimitador)
 {

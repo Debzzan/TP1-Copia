@@ -8,7 +8,7 @@ using namespace std;
 class Modelo
 {
 private:
-    sqlite3 *db;
+    
 
     void CriarTableConta();
     void CriarTableViagem();
@@ -22,6 +22,7 @@ protected:
     int status;
     static vector<map<string, string>> results;
     string ComandoSQL;
+    sqlite3 *db;
 
 public:
     void CriarTables();

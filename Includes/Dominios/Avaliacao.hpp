@@ -1,5 +1,5 @@
-#ifndef AVALIACAO_DOMAIN_INTERFACE_H
-#define AVALIACAO_DOMAIN_INTERFACE_H
+#ifndef AVALIACAO_DOMAIN_INTERFACE_HPP
+#define AVALIACAO_DOMAIN_INTERFACE_HPP
 #include "./Dominio.hpp"
 
 class Avaliacao : public Dominio

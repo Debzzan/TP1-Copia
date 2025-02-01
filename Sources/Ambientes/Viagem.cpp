@@ -19,7 +19,7 @@ void AmbienteViagem::Executar(Codigo &CodigoUsuario)
       cout << "3 - Deletar viagem" << endl;
       cout << "4 - Listar viagens existentes" << endl;
       cout << "5 - Consultar viagem existentes" << endl;
-      cout << "6 - Retornar" << endl;
+      cout << "6 - Retornar ao HUB" << endl;
       cout << "Escolha uma opção (1 a 6): ";
       string option;
       cin >> option;
@@ -46,6 +46,10 @@ void AmbienteViagem::Executar(Codigo &CodigoUsuario)
       else if (option == "5")
       {
         ConsultaViagem();
+      }
+      else if (option == "6")
+      {
+        return;
       }
         else
         {
@@ -274,8 +278,7 @@ void AmbienteViagem::ConsultaDestino()
         }
         else
         {
-          cout << "Opção inválida" << endl;
-          ConsultaDestino();
+          return;
         }
 
       cout << endl
@@ -353,8 +356,7 @@ void AmbienteViagem::ConsultaViagem()
         }
         else
         {
-          cout << "Opção inválida" << endl;
-          Executar(CodigoUsuario);
+          return;
         }
 
       cout << endl
@@ -372,5 +374,6 @@ void AmbienteViagem::ConsultaViagem()
     cout << "Pressione qualquer tecla para continuar.";
     cin.ignore();
     cin.get();
+    Executar(CodigoUsuario);
   }
 }

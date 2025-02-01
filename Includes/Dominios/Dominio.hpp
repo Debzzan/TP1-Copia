@@ -1,5 +1,5 @@
-#ifndef DOMINIO_INTERFACE_H
-#define DOMINIO_INTERFACE_H
+#ifndef DOMINIO_INTERFACE_HPP
+#define DOMINIO_INTERFACE_HPP
 
 #include <bits/stdc++.h>
 #include <stdexcept>
@@ -14,11 +14,11 @@ private:
 
 public:
     virtual ~Dominio() = default;
-    void setValor(const string &value);
+    void setValor(const string &valor);
     const string &getValor() const;
 };
 
-inline void Dominio::setValor(const string &value)
+inline void Dominio::setValor(const string &valor)
 {
     validar(valor);
     this->valor = valor;
@@ -29,4 +29,4 @@ inline const string &Dominio::getValor() const
     return this->valor;
 }
 
-#endif // DOMAIN_INTERFACE_H
+#endif 

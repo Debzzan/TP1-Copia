@@ -1,5 +1,5 @@
-#ifndef SENHA_DOMAIN_INTERFACE_H
-#define SENHA_DOMAIN_INTERFACE_H
+#ifndef SENHA_DOMAIN_INTERFACE_HPP
+#define SENHA_DOMAIN_INTERFACE_HPP
 #include "./Dominio.hpp"
 
 class Senha : public Dominio

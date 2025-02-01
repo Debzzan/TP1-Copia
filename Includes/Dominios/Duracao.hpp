@@ -1,5 +1,5 @@
-#ifndef DURACAO_DOMAIN_INTERFACE_H
-#define DURACAO_DOMAIN_INTERFACE_H
+#ifndef DURACAO_DOMAIN_INTERFACE_HPP
+#define DURACAO_DOMAIN_INTERFACE_HPP
 #include "./Dominio.hpp"
 #include <stdexcept>
 #include <string>
@@ -23,13 +23,5 @@ inline Duracao::Duracao(string valor)
     this->setValor(valor);
 }
 
-void Duracao::validar(string valor)
-{
-    int duration = stoi(valor);
-    if (duration < DuracaoMinima || duration > DuracaoMaxima)
-    {
-        throw invalid_argument("Duração fora do intervalo permitido.");
-    }
-}
 
-#endif // DURATION_DOMAIN_INTERFACE_H
+#endif 

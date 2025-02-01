@@ -1,12 +1,12 @@
 #include "../../Includes/Dominios/Data.hpp"
-#include "../../Separador/Separador.hpp"
+#include "../../Includes/Separador/Separador.hpp"
 using namespace Separador;
 
 const std::vector<int> Data::DiasMes = {31, 0, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
 
 void Data::validar(string valor)
 {
-  if (valor.find("/") != string::npos)
+  if (valor.find("-") != string::npos)
   {
     throw invalid_argument("Argumento invalido: formato inválido.");
   }
@@ -16,7 +16,7 @@ void Data::validar(string valor)
     throw invalid_argument("Argumento invalido: espaços em branco não são permitidos.");
   }
 
-  vector<string> ValorSeparado = split(valor, "-");
+  vector<string> ValorSeparado = split(valor, "/");
 
   if (ValorSeparado.size() != 3)
   {
@@ -45,8 +45,8 @@ void Data::validar(string valor)
 
 int Data::CalcularAlcanceDatas(string DataInicial, string DataFinal)
 {
-  vector<string> splitedDataInicial = split(DataInicial, "-");
-  vector<string> splitedDataFinal = split(DataFinal, "-");
+  vector<string> splitedDataInicial = split(DataInicial, "/");
+  vector<string> splitedDataFinal = split(DataFinal, "/");
 
   int DiasIniciais = stoi(splitedDataInicial[0]);
   int MesesIniciais = stoi(splitedDataInicial[1]);
@@ -103,9 +103,9 @@ int Data::CalcularAlcanceDatas(string DataInicial, string DataFinal)
 
 bool Data::AlcanceDatas(string Data, string DataInicial, string DataFinal)
 {
-  vector<string> splitedData = split(Data, "-");
-  vector<string> splitedDataInicial = split(DataInicial, "-");
-  vector<string> splitedDataFinal = split(DataFinal, "-");
+  vector<string> splitedData = split(Data, "/");
+  vector<string> splitedDataInicial = split(DataInicial, "/");
+  vector<string> splitedDataFinal = split(DataFinal, "/");
 
   int EntradaDias = stoi(splitedData[0]);
   int EntradaMeses = stoi(splitedData[1]);

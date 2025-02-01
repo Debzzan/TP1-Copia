@@ -1,5 +1,5 @@
-#ifndef CONTA_AMBIENTE_INTERFACE_H
-#define CONTA_AMBIENTE_INTERFACE_H
+#ifndef CONTA_AMBIENTE_INTERFACE_HPP
+#define CONTA_AMBIENTE_INTERFACE_HPP
 
 #include "../Interfaces/Apresentacao.hpp"
 #include "../Interfaces/Servicos.hpp"

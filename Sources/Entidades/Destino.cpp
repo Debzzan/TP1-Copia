@@ -1,7 +1,7 @@
 #include "../../Includes/Entidades/Destino.hpp"
 
-Destino::Destino(const Codigo &codigo, const Nome &nome, const Data &data_chegada, const Data &data_partida, const Avaliacao &avaliacao)
-    : codigo(codigo), nome(nome), data_chegada(data_chegada), data_partida(data_partida), avaliacao(avaliacao) {}
+Destino::Destino(const Codigo &codigo, const Nome &nome, const Data &chegada, const Data &partida, const Avaliacao &avaliacao)
+    : codigo(codigo), nome(nome), chegada(chegada), partida(partida), avaliacao(avaliacao) {}
 
 void Destino::set(const Dominio &dominio, string NomeProprio)
 {
@@ -13,13 +13,13 @@ void Destino::set(const Dominio &dominio, string NomeProprio)
     {
         this->nome = static_cast<const Nome &>(dominio);
     }
-    else if (NomeProprio == "data_chegada")
+    else if (NomeProprio == "chegada")
     {
-        this->data_chegada = static_cast<const Data &>(dominio);
+        this->chegada = static_cast<const Data &>(dominio);
     }
-    else if (NomeProprio == "data_partida")
+    else if (NomeProprio == "partida")
     {
-        this->data_partida = static_cast<const Data &>(dominio);
+        this->partida = static_cast<const Data &>(dominio);
     }
     else if (NomeProprio == "avaliacao")
     {
@@ -41,13 +41,13 @@ const Dominio &Destino::get(const string NomeProprio) const
     {
         return this->nome;
     }
-    else if (NomeProprio == "data_chegada")
+    else if (NomeProprio == "chegada")
     {
-        return this->data_chegada;
+        return this->chegada;
     }
-    else if (NomeProprio == "data_partida")
+    else if (NomeProprio == "partida")
     {
-        return this->data_partida;
+        return this->partida;
     }
     else if (NomeProprio == "avaliacao")
     {

@@ -44,9 +44,16 @@ void AmbienteHospedagem::Executar(Codigo &CodigoUsuario)
       {
         Remover();
       }
+      else if (option == "5")
+      {
+        return;
+      }
          else
         {
           cout << "Opção inválida" << endl;
+              cout << "Pressione qualquer tecla para continuar.";
+              cin.ignore();
+              cin.get();
           Executar(CodigoUsuario);
         }
 

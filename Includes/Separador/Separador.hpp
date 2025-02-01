@@ -6,7 +6,7 @@ using namespace std;
 
 namespace Separador
 {
-    vector<string> split(const string &str, const char *delimitadorr);
+    vector<string> split(const string &str, const char *delimitador);
 }
 
-#endif // UTILS_H
+#endif 

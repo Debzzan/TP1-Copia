@@ -1,5 +1,5 @@
-#ifndef MONEY_DOMAIN_INTERFACE_H
-#define MONEY_DOMAIN_INTERFACE_H
+#ifndef MONEY_DOMAIN_INTERFACE_HPP
+#define MONEY_DOMAIN_INTERFACE_HPP
 #include "./Dominio.hpp"
 
 class Dinheiro : public Dominio
@@ -19,4 +19,4 @@ inline Dinheiro::Dinheiro(string valor)
     this->setValor(valor);
 }
 
-#endif // MONEY_DOMAIN_INTERFACE_H
+#endif 

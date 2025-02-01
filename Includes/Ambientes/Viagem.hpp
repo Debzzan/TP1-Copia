@@ -1,5 +1,5 @@
-#ifndef VIAGEM_AMBIENTE_INTERFACE_H
-#define VIAGEM_AMBIENTE_INTERFACE_H
+#ifndef VIAGEM_AMBIENTE_INTERFACE_HPP
+#define VIAGEM_AMBIENTE_INTERFACE_HPP
 
 #include "../Interfaces/Apresentacao.hpp"
 #include "../Interfaces/Servicos.hpp"
