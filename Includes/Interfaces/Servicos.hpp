@@ -11,6 +11,12 @@
 #include "../Entidades/Hospedagem.hpp"
 #include "../Entidades/Atividades.hpp"
 
+/**
+ * @class InterfaceServicoViagem
+ * @brief Interface para serviços relacionados a viagens.
+ * 
+ * Esta interface define métodos para criar, atualizar, remover, ler e consultar informações sobre viagens.
+ */
 class InterfaceServicoViagem
 {
 public:
@@ -26,6 +32,12 @@ public:
   virtual ~InterfaceServicoViagem() {};
 };
 
+/**
+ * @class InterfaceServicoConta
+ * @brief Interface para serviços relacionados a contas.
+ * 
+ * Esta interface define métodos para autenticar e criar contas de usuário.
+ */
 class InterfaceServicoConta
 {
 public:
@@ -34,6 +46,12 @@ public:
   virtual ~InterfaceServicoConta() {};
 };
 
+/**
+ * @class InterfaceServicoDestino
+ * @brief Interface para serviços relacionados a destinos.
+ * 
+ * Esta interface define métodos para criar, ler, atualizar e remover destinos.
+ */
 class InterfaceServicoDestino
 {
 public:
@@ -44,6 +62,12 @@ public:
   virtual ~InterfaceServicoDestino() {};
 };
 
+/**
+ * @class InterfaceServicoHospedagem
+ * @brief Interface para serviços relacionados a hospedagens.
+ * 
+ * Esta interface define métodos para criar, ler, atualizar e remover hospedagens.
+ */
 class InterfaceServicoHospedagem
 {
 public:
@@ -54,6 +78,12 @@ public:
   virtual ~InterfaceServicoHospedagem() {};
 };
 
+/**
+ * @class InterfaceServicoAtividade
+ * @brief Interface para serviços relacionados a atividades.
+ * 
+ * Esta interface define métodos para criar, ler, atualizar e remover atividades.
+ */
 class InterfaceServicoAtividade
 {
 public:
@@ -64,4 +94,4 @@ public:
   virtual ~InterfaceServicoAtividade() {};
 };
 
-#endif 
+#endif // SERVICES_INTERFACE_H
