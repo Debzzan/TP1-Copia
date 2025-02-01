@@ -1,0 +1,26 @@
+\doxysection{Hospedagem.\+hpp}
+\hypertarget{_hospedagem_8hpp_source}{}\label{_hospedagem_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ HOSPEDAGEM\_SERVICE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ HOSPEDAGEM\_SERVICE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}./Modelo.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../Interfaces/Servicos.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_modelo_hospedagem}{ModeloHospedagem}}\ :\ \textcolor{keyword}{public}\ InterfaceServicoHospedagem,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_modelo}{Modelo}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_modelo_hospedagem_a04cac0009e3af42da5528521eb94a3f4}{Criar}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoDestinoHospedagem,\ Hospedagem\ \&NovaHospedagem)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00029\ \ \ vector<Hospedagem>\ \mbox{\hyperlink{class_modelo_hospedagem_a7bd1488d6b1526d14c340e8fea0e3897}{Ler}}(Codigo\ \&CodigoUsuario)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_modelo_hospedagem_a85a5c7c3ae93ba5de70128498e89112c}{Atualizar}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoHospedagem,\ Hospedagem\ \&HospedagemAtualizada)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_modelo_hospedagem_a2cb20b943afee4c6ed9f0881035badae}{Remover}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoHospedagem)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{class_modelo_hospedagem_aa6ccdcdeb66f1acc9afebf281d9f8f44}{\string~ModeloHospedagem}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,60 @@
+\doxysection{Modelo Class Reference}
+\hypertarget{class_modelo}{}\label{class_modelo}\index{Modelo@{Modelo}}
+
+
+Classe base para a interação com o banco de dados SQLite.  
+
+
+
+
+{\ttfamily \#include $<$Modelo.\+hpp$>$}
+
+Inheritance diagram for Modelo\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=1.659259cm]{class_modelo}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_modelo_aaf8fc35318dede97fda25d809454c184}\label{class_modelo_aaf8fc35318dede97fda25d809454c184} 
+void {\bfseries Criar\+Tables} ()
+\begin{DoxyCompactList}\small\item\em Cria todas as tabelas no banco de dados. \end{DoxyCompactList}\item 
+\Hypertarget{class_modelo_a36b013d0eaef44b2230d3fbbbcec8f66}\label{class_modelo_a36b013d0eaef44b2230d3fbbbcec8f66} 
+void {\bfseries Executar} ()
+\begin{DoxyCompactList}\small\item\em Executa o comando SQL armazenado em Comando\+SQL. \end{DoxyCompactList}\item 
+\Hypertarget{class_modelo_ae795d5aac02167b53f73ed4e585f7b77}\label{class_modelo_ae795d5aac02167b53f73ed4e585f7b77} 
+{\bfseries Modelo} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_modelo}{Modelo}. \end{DoxyCompactList}\item 
+\Hypertarget{class_modelo_aefdca3cd30e941546042515df53e48f9}\label{class_modelo_aefdca3cd30e941546042515df53e48f9} 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Modelo} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_modelo}{Modelo}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_modelo_ab01bddf5c5bbb7f2b4b944977a8c105c}\label{class_modelo_ab01bddf5c5bbb7f2b4b944977a8c105c} 
+int {\bfseries status}
+\begin{DoxyCompactList}\small\item\em Status da execução do comando SQL. \end{DoxyCompactList}\item 
+\Hypertarget{class_modelo_a8f2c5b3e1e3c59bdbde3d1abc24e3bf8}\label{class_modelo_a8f2c5b3e1e3c59bdbde3d1abc24e3bf8} 
+string {\bfseries Comando\+SQL}
+\begin{DoxyCompactList}\small\item\em Comando SQL a ser executado. \end{DoxyCompactList}\item 
+\Hypertarget{class_modelo_a2af05ad9b0db5d58d83605a7d9990ace}\label{class_modelo_a2af05ad9b0db5d58d83605a7d9990ace} 
+sqlite3 \texorpdfstring{$\ast$}{*} {\bfseries db}
+\begin{DoxyCompactList}\small\item\em Ponteiro para o banco de dados SQLite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_modelo_a9255e352eabcf6e7597cd1949c7ddc01}\label{class_modelo_a9255e352eabcf6e7597cd1949c7ddc01} 
+static vector$<$ map$<$ string, string $>$ $>$ {\bfseries results}
+\begin{DoxyCompactList}\small\item\em Resultados das consultas SQL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe base para a interação com o banco de dados SQLite. 
+
+Esta classe fornece métodos para criar tabelas e executar comandos SQL. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Modelo.\+hpp\end{DoxyCompactItemize}

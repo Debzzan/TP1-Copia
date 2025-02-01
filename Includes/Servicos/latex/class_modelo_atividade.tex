@@ -1,0 +1,143 @@
+\doxysection{Modelo\+Atividade Class Reference}
+\hypertarget{class_modelo_atividade}{}\label{class_modelo_atividade}\index{ModeloAtividade@{ModeloAtividade}}
+
+
+Classe que implementa a interface de serviço de atividade.  
+
+
+
+
+{\ttfamily \#include $<$Atividade.\+hpp$>$}
+
+Inheritance diagram for Modelo\+Atividade\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_modelo_atividade}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_modelo_atividade_a5debc42527084e483ab092034928c2fb}{Criar}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Destino\+Atividade, Atividade \&Nova\+Atividade) override
+\begin{DoxyCompactList}\small\item\em Cria uma nova atividade. \end{DoxyCompactList}\item 
+vector$<$ Atividade $>$ \mbox{\hyperlink{class_modelo_atividade_ac67c4c4fabdee78e740bce9ba06e616f}{Ler}} (Codigo \&Codigo\+Usuario) override
+\begin{DoxyCompactList}\small\item\em Lê todas as atividades do usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_modelo_atividade_abe38374662247117c768db98b371acf9}{Atualizar}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Atividade, Atividade \&Atividade\+Atualizada) override
+\begin{DoxyCompactList}\small\item\em Atualiza uma atividade existente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_modelo_atividade_ad5663b18ff53cf077a6194c74793a97c}{Remover}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Atividade) override
+\begin{DoxyCompactList}\small\item\em Remove uma atividade. \end{DoxyCompactList}\item 
+\Hypertarget{class_modelo_atividade_a57bf49c0b94f145117f59ad8771e9645}\label{class_modelo_atividade_a57bf49c0b94f145117f59ad8771e9645} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Modelo\+Atividade} () override
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_modelo_atividade}{Modelo\+Atividade}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Criar\+Tables} ()
+\begin{DoxyCompactList}\small\item\em Cria todas as tabelas no banco de dados. \end{DoxyCompactList}\item 
+void {\bfseries Executar} ()
+\begin{DoxyCompactList}\small\item\em Executa o comando SQL armazenado em Comando\+SQL. \end{DoxyCompactList}\item 
+{\bfseries Modelo} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_modelo}{Modelo}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Modelo} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_modelo}{Modelo}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries status}
+\begin{DoxyCompactList}\small\item\em Status da execução do comando SQL. \end{DoxyCompactList}\item 
+string {\bfseries Comando\+SQL}
+\begin{DoxyCompactList}\small\item\em Comando SQL a ser executado. \end{DoxyCompactList}\item 
+sqlite3 \texorpdfstring{$\ast$}{*} {\bfseries db}
+\begin{DoxyCompactList}\small\item\em Ponteiro para o banco de dados SQLite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+static vector$<$ map$<$ string, string $>$ $>$ {\bfseries results}
+\begin{DoxyCompactList}\small\item\em Resultados das consultas SQL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que implementa a interface de serviço de atividade. 
+
+Esta classe herda de Interface\+Servico\+Atividade e \doxylink{class_modelo}{Modelo}, e implementa os métodos para criar, ler, atualizar e remover atividades. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_modelo_atividade_abe38374662247117c768db98b371acf9}\index{ModeloAtividade@{ModeloAtividade}!Atualizar@{Atualizar}}
+\index{Atualizar@{Atualizar}!ModeloAtividade@{ModeloAtividade}}
+\doxysubsubsection{\texorpdfstring{Atualizar()}{Atualizar()}}
+{\footnotesize\ttfamily \label{class_modelo_atividade_abe38374662247117c768db98b371acf9} 
+void Modelo\+Atividade\+::\+Atualizar (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Atividade}{, }\item[{Atividade \&}]{Atividade\+Atualizada}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Atualiza uma atividade existente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Atividade} & Código da atividade a ser atualizada. \\
+\hline
+{\em Atividade\+Atualizada} & Atividade atualizada. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_modelo_atividade_a5debc42527084e483ab092034928c2fb}\index{ModeloAtividade@{ModeloAtividade}!Criar@{Criar}}
+\index{Criar@{Criar}!ModeloAtividade@{ModeloAtividade}}
+\doxysubsubsection{\texorpdfstring{Criar()}{Criar()}}
+{\footnotesize\ttfamily \label{class_modelo_atividade_a5debc42527084e483ab092034928c2fb} 
+void Modelo\+Atividade\+::\+Criar (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Destino\+Atividade}{, }\item[{Atividade \&}]{Nova\+Atividade}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Cria uma nova atividade. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Destino\+Atividade} & Código do destino da atividade. \\
+\hline
+{\em Nova\+Atividade} & Nova atividade a ser criada. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_modelo_atividade_ac67c4c4fabdee78e740bce9ba06e616f}\index{ModeloAtividade@{ModeloAtividade}!Ler@{Ler}}
+\index{Ler@{Ler}!ModeloAtividade@{ModeloAtividade}}
+\doxysubsubsection{\texorpdfstring{Ler()}{Ler()}}
+{\footnotesize\ttfamily \label{class_modelo_atividade_ac67c4c4fabdee78e740bce9ba06e616f} 
+vector$<$ Atividade $>$ Modelo\+Atividade\+::\+Ler (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Lê todas as atividades do usuário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$\+Atividade$>$ Vetor contendo as atividades do usuário. 
+\end{DoxyReturn}
+\Hypertarget{class_modelo_atividade_ad5663b18ff53cf077a6194c74793a97c}\index{ModeloAtividade@{ModeloAtividade}!Remover@{Remover}}
+\index{Remover@{Remover}!ModeloAtividade@{ModeloAtividade}}
+\doxysubsubsection{\texorpdfstring{Remover()}{Remover()}}
+{\footnotesize\ttfamily \label{class_modelo_atividade_ad5663b18ff53cf077a6194c74793a97c} 
+void Modelo\+Atividade\+::\+Remover (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Atividade}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Remove uma atividade. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Atividade} & Código da atividade a ser removida. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Atividade.\+hpp\end{DoxyCompactItemize}

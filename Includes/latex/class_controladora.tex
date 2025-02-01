@@ -1,0 +1,124 @@
+\doxysection{Controladora Class Reference}
+\hypertarget{class_controladora}{}\label{class_controladora}\index{Controladora@{Controladora}}
+
+
+Classe responsável por controlar os ambientes de apresentação.  
+
+
+
+
+{\ttfamily \#include $<$Controladora.\+hpp$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_controladora_a7006efd5d8fddc014908de433c0b326a}\label{class_controladora_a7006efd5d8fddc014908de433c0b326a} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Controladora} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_controladora}{Controladora}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controladora_aa134db57c539c3c5562706badd35f5ed}{set\+Ambiente\+Conta}} (Interface\+Apresentacao \texorpdfstring{$\ast$}{*}Ambiente\+Conta)
+\begin{DoxyCompactList}\small\item\em Define o ambiente de apresentação de conta. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controladora_a03aecb20937e137b4f81129164af6767}{set\+Ambiente\+Viagem}} (Interface\+Apresentacao \texorpdfstring{$\ast$}{*}Ambiente\+Viagem)
+\begin{DoxyCompactList}\small\item\em Define o ambiente de apresentação de viagem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controladora_ab5a305964822e7c98cd91a28741b1d5e}{set\+Ambiente\+Destino}} (Interface\+Apresentacao \texorpdfstring{$\ast$}{*}Ambiente\+Destino)
+\begin{DoxyCompactList}\small\item\em Define o ambiente de apresentação de destino. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controladora_a7b12676471cb45a7aab47f1c0a0fca3c}{set\+Ambiente\+Hospedagem}} (Interface\+Apresentacao \texorpdfstring{$\ast$}{*}Ambiente\+Hospedagem)
+\begin{DoxyCompactList}\small\item\em Define o ambiente de apresentação de hospedagem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_controladora_a69324de21f1e21b5b33931132e2f42c6}{set\+Ambiente\+Atividade}} (Interface\+Apresentacao \texorpdfstring{$\ast$}{*}Ambiente\+Atividade)
+\begin{DoxyCompactList}\small\item\em Define o ambiente de apresentação de atividade. \end{DoxyCompactList}\item 
+\Hypertarget{class_controladora_a51d54a7e6bbfaeddfd3ac246c4081208}\label{class_controladora_a51d54a7e6bbfaeddfd3ac246c4081208} 
+void {\bfseries Executar} ()
+\begin{DoxyCompactList}\small\item\em Executa a controladora. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_controladora_a9b0f425b76a94c6c0a9b0c3bff9486c7}\label{class_controladora_a9b0f425b76a94c6c0a9b0c3bff9486c7} 
+Codigo {\bfseries Codigo\+Usuario} = Codigo("{}000000"{})
+\begin{DoxyCompactList}\small\item\em Código do usuário. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe responsável por controlar os ambientes de apresentação. 
+
+Esta classe gerencia as diferentes interfaces de apresentação, como conta, viagem, destino, hospedagem e atividade. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_controladora_a69324de21f1e21b5b33931132e2f42c6}\index{Controladora@{Controladora}!setAmbienteAtividade@{setAmbienteAtividade}}
+\index{setAmbienteAtividade@{setAmbienteAtividade}!Controladora@{Controladora}}
+\doxysubsubsection{\texorpdfstring{setAmbienteAtividade()}{setAmbienteAtividade()}}
+{\footnotesize\ttfamily \label{class_controladora_a69324de21f1e21b5b33931132e2f42c6} 
+void Controladora\+::set\+Ambiente\+Atividade (\begin{DoxyParamCaption}\item[{Interface\+Apresentacao \texorpdfstring{$\ast$}{*}}]{Ambiente\+Atividade}{}\end{DoxyParamCaption})}
+
+
+
+Define o ambiente de apresentação de atividade. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ambiente\+Atividade} & Ponteiro para o ambiente de apresentação de atividade. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_controladora_aa134db57c539c3c5562706badd35f5ed}\index{Controladora@{Controladora}!setAmbienteConta@{setAmbienteConta}}
+\index{setAmbienteConta@{setAmbienteConta}!Controladora@{Controladora}}
+\doxysubsubsection{\texorpdfstring{setAmbienteConta()}{setAmbienteConta()}}
+{\footnotesize\ttfamily \label{class_controladora_aa134db57c539c3c5562706badd35f5ed} 
+void Controladora\+::set\+Ambiente\+Conta (\begin{DoxyParamCaption}\item[{Interface\+Apresentacao \texorpdfstring{$\ast$}{*}}]{Ambiente\+Conta}{}\end{DoxyParamCaption})}
+
+
+
+Define o ambiente de apresentação de conta. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ambiente\+Conta} & Ponteiro para o ambiente de apresentação de conta. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_controladora_ab5a305964822e7c98cd91a28741b1d5e}\index{Controladora@{Controladora}!setAmbienteDestino@{setAmbienteDestino}}
+\index{setAmbienteDestino@{setAmbienteDestino}!Controladora@{Controladora}}
+\doxysubsubsection{\texorpdfstring{setAmbienteDestino()}{setAmbienteDestino()}}
+{\footnotesize\ttfamily \label{class_controladora_ab5a305964822e7c98cd91a28741b1d5e} 
+void Controladora\+::set\+Ambiente\+Destino (\begin{DoxyParamCaption}\item[{Interface\+Apresentacao \texorpdfstring{$\ast$}{*}}]{Ambiente\+Destino}{}\end{DoxyParamCaption})}
+
+
+
+Define o ambiente de apresentação de destino. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ambiente\+Destino} & Ponteiro para o ambiente de apresentação de destino. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_controladora_a7b12676471cb45a7aab47f1c0a0fca3c}\index{Controladora@{Controladora}!setAmbienteHospedagem@{setAmbienteHospedagem}}
+\index{setAmbienteHospedagem@{setAmbienteHospedagem}!Controladora@{Controladora}}
+\doxysubsubsection{\texorpdfstring{setAmbienteHospedagem()}{setAmbienteHospedagem()}}
+{\footnotesize\ttfamily \label{class_controladora_a7b12676471cb45a7aab47f1c0a0fca3c} 
+void Controladora\+::set\+Ambiente\+Hospedagem (\begin{DoxyParamCaption}\item[{Interface\+Apresentacao \texorpdfstring{$\ast$}{*}}]{Ambiente\+Hospedagem}{}\end{DoxyParamCaption})}
+
+
+
+Define o ambiente de apresentação de hospedagem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ambiente\+Hospedagem} & Ponteiro para o ambiente de apresentação de hospedagem. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_controladora_a03aecb20937e137b4f81129164af6767}\index{Controladora@{Controladora}!setAmbienteViagem@{setAmbienteViagem}}
+\index{setAmbienteViagem@{setAmbienteViagem}!Controladora@{Controladora}}
+\doxysubsubsection{\texorpdfstring{setAmbienteViagem()}{setAmbienteViagem()}}
+{\footnotesize\ttfamily \label{class_controladora_a03aecb20937e137b4f81129164af6767} 
+void Controladora\+::set\+Ambiente\+Viagem (\begin{DoxyParamCaption}\item[{Interface\+Apresentacao \texorpdfstring{$\ast$}{*}}]{Ambiente\+Viagem}{}\end{DoxyParamCaption})}
+
+
+
+Define o ambiente de apresentação de viagem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Ambiente\+Viagem} & Ponteiro para o ambiente de apresentação de viagem. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Controladora.\+hpp\end{DoxyCompactItemize}

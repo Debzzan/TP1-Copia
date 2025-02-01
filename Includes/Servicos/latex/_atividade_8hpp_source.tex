@@ -1,0 +1,26 @@
+\doxysection{Atividade.\+hpp}
+\hypertarget{_atividade_8hpp_source}{}\label{_atividade_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ ATIVIDADE\_SERVICE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ ATIVIDADE\_SERVICE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}./Modelo.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../Interfaces/Servicos.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_modelo_atividade}{ModeloAtividade}}\ :\ \textcolor{keyword}{public}\ InterfaceServicoAtividade,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_modelo}{Modelo}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00022\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_modelo_atividade_a5debc42527084e483ab092034928c2fb}{Criar}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoDestinoAtividade,\ Atividade\ \&NovaAtividade)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00023\ }
+\DoxyCodeLine{00029\ \ \ vector<Atividade>\ \mbox{\hyperlink{class_modelo_atividade_ac67c4c4fabdee78e740bce9ba06e616f}{Ler}}(Codigo\ \&CodigoUsuario)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00037\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_modelo_atividade_abe38374662247117c768db98b371acf9}{Atualizar}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoAtividade,\ Atividade\ \&AtividadeAtualizada)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00038\ }
+\DoxyCodeLine{00044\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_modelo_atividade_ad5663b18ff53cf077a6194c74793a97c}{Remover}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoAtividade)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00045\ }
+\DoxyCodeLine{00049\ \ \ \mbox{\hyperlink{class_modelo_atividade_a57bf49c0b94f145117f59ad8771e9645}{\string~ModeloAtividade}}()\textcolor{keyword}{\ override\ }\{\}}
+\DoxyCodeLine{00050\ \};}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

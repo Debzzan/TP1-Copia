@@ -1,0 +1,251 @@
+\doxysection{Modelo\+Viagem Class Reference}
+\hypertarget{class_modelo_viagem}{}\label{class_modelo_viagem}\index{ModeloViagem@{ModeloViagem}}
+
+
+Classe que implementa a interface de serviço de viagem.  
+
+
+
+
+{\ttfamily \#include $<$Viagem.\+hpp$>$}
+
+Inheritance diagram for Modelo\+Viagem\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_modelo_viagem}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_modelo_viagem_a8f91e4cb77935e46af60a9ec133c1536}{Criar}} (Codigo \&Codigo\+Usuario, Viagem \&Nova\+Viagem) override
+\begin{DoxyCompactList}\small\item\em Cria uma nova viagem. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_modelo_viagem_a04111c16925294ef618c506568c803b9}{Atualizar}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Viagem, Viagem \&Viagem\+Atualizada) override
+\begin{DoxyCompactList}\small\item\em Atualiza uma viagem existente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_modelo_viagem_a4ed07d1e0f77440415ac8be1d62254a8}{Remover}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Viagem) override
+\begin{DoxyCompactList}\small\item\em Remove uma viagem. \end{DoxyCompactList}\item 
+vector$<$ Viagem $>$ \mbox{\hyperlink{class_modelo_viagem_aa9e28a7d7c48e9d1b1a5fd9d46eedef7}{Ler\+Tudo}} (Codigo \&Codigo\+Usuario) override
+\begin{DoxyCompactList}\small\item\em Lê todas as viagens do usuário. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_modelo_viagem_abd29134c8dd74af38a84bd46aafb0b48}{Consulta\+Custo}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Viagem) override
+\begin{DoxyCompactList}\small\item\em Consulta o custo de uma viagem. \end{DoxyCompactList}\item 
+vector$<$ Destino $>$ \mbox{\hyperlink{class_modelo_viagem_ab307f5824466c99d3b41b4d00f655e05}{Lista\+Destinos}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Viagem) override
+\begin{DoxyCompactList}\small\item\em Lista os destinos de uma viagem. \end{DoxyCompactList}\item 
+Destino \mbox{\hyperlink{class_modelo_viagem_a526ae026655e3bf0a8bd49a9f22701cc}{Consulta\+Destino}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Destino) override
+\begin{DoxyCompactList}\small\item\em Consulta informações de um destino. \end{DoxyCompactList}\item 
+vector$<$ Hospedagem $>$ \mbox{\hyperlink{class_modelo_viagem_afadb0865ec121431f5c5ac77c6c0fda6}{Lista\+Hospedagems}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Destino) override
+\begin{DoxyCompactList}\small\item\em Lista as hospedagens de um destino. \end{DoxyCompactList}\item 
+vector$<$ Atividade $>$ \mbox{\hyperlink{class_modelo_viagem_abcdc9f7d0dc29b407a54247f6341be9d}{Lista\+Atividades}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Destino) override
+\begin{DoxyCompactList}\small\item\em Lista as atividades de um destino. \end{DoxyCompactList}\item 
+\Hypertarget{class_modelo_viagem_a905116bd1b6d41b66d5bb73d72b84686}\label{class_modelo_viagem_a905116bd1b6d41b66d5bb73d72b84686} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Modelo\+Viagem} () override
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_modelo_viagem}{Modelo\+Viagem}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Criar\+Tables} ()
+\begin{DoxyCompactList}\small\item\em Cria todas as tabelas no banco de dados. \end{DoxyCompactList}\item 
+void {\bfseries Executar} ()
+\begin{DoxyCompactList}\small\item\em Executa o comando SQL armazenado em Comando\+SQL. \end{DoxyCompactList}\item 
+{\bfseries Modelo} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_modelo}{Modelo}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Modelo} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_modelo}{Modelo}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries status}
+\begin{DoxyCompactList}\small\item\em Status da execução do comando SQL. \end{DoxyCompactList}\item 
+string {\bfseries Comando\+SQL}
+\begin{DoxyCompactList}\small\item\em Comando SQL a ser executado. \end{DoxyCompactList}\item 
+sqlite3 \texorpdfstring{$\ast$}{*} {\bfseries db}
+\begin{DoxyCompactList}\small\item\em Ponteiro para o banco de dados SQLite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+static vector$<$ map$<$ string, string $>$ $>$ {\bfseries results}
+\begin{DoxyCompactList}\small\item\em Resultados das consultas SQL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que implementa a interface de serviço de viagem. 
+
+Esta classe herda de Interface\+Servico\+Viagem e \doxylink{class_modelo}{Modelo}, e implementa os métodos para criar, ler, atualizar e remover viagens. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_modelo_viagem_a04111c16925294ef618c506568c803b9}\index{ModeloViagem@{ModeloViagem}!Atualizar@{Atualizar}}
+\index{Atualizar@{Atualizar}!ModeloViagem@{ModeloViagem}}
+\doxysubsubsection{\texorpdfstring{Atualizar()}{Atualizar()}}
+{\footnotesize\ttfamily \label{class_modelo_viagem_a04111c16925294ef618c506568c803b9} 
+void Modelo\+Viagem\+::\+Atualizar (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Viagem}{, }\item[{Viagem \&}]{Viagem\+Atualizada}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Atualiza uma viagem existente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Viagem} & Código da viagem a ser atualizada. \\
+\hline
+{\em Viagem\+Atualizada} & Viagem atualizada. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_modelo_viagem_abd29134c8dd74af38a84bd46aafb0b48}\index{ModeloViagem@{ModeloViagem}!ConsultaCusto@{ConsultaCusto}}
+\index{ConsultaCusto@{ConsultaCusto}!ModeloViagem@{ModeloViagem}}
+\doxysubsubsection{\texorpdfstring{ConsultaCusto()}{ConsultaCusto()}}
+{\footnotesize\ttfamily \label{class_modelo_viagem_abd29134c8dd74af38a84bd46aafb0b48} 
+int Modelo\+Viagem\+::\+Consulta\+Custo (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Viagem}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Consulta o custo de uma viagem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Viagem} & Código da viagem. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+int Custo da viagem. 
+\end{DoxyReturn}
+\Hypertarget{class_modelo_viagem_a526ae026655e3bf0a8bd49a9f22701cc}\index{ModeloViagem@{ModeloViagem}!ConsultaDestino@{ConsultaDestino}}
+\index{ConsultaDestino@{ConsultaDestino}!ModeloViagem@{ModeloViagem}}
+\doxysubsubsection{\texorpdfstring{ConsultaDestino()}{ConsultaDestino()}}
+{\footnotesize\ttfamily \label{class_modelo_viagem_a526ae026655e3bf0a8bd49a9f22701cc} 
+Destino Modelo\+Viagem\+::\+Consulta\+Destino (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Destino}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Consulta informações de um destino. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Destino} & Código do destino. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Destino Informações do destino. 
+\end{DoxyReturn}
+\Hypertarget{class_modelo_viagem_a8f91e4cb77935e46af60a9ec133c1536}\index{ModeloViagem@{ModeloViagem}!Criar@{Criar}}
+\index{Criar@{Criar}!ModeloViagem@{ModeloViagem}}
+\doxysubsubsection{\texorpdfstring{Criar()}{Criar()}}
+{\footnotesize\ttfamily \label{class_modelo_viagem_a8f91e4cb77935e46af60a9ec133c1536} 
+void Modelo\+Viagem\+::\+Criar (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Viagem \&}]{Nova\+Viagem}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Cria uma nova viagem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Nova\+Viagem} & Nova viagem a ser criada. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_modelo_viagem_aa9e28a7d7c48e9d1b1a5fd9d46eedef7}\index{ModeloViagem@{ModeloViagem}!LerTudo@{LerTudo}}
+\index{LerTudo@{LerTudo}!ModeloViagem@{ModeloViagem}}
+\doxysubsubsection{\texorpdfstring{LerTudo()}{LerTudo()}}
+{\footnotesize\ttfamily \label{class_modelo_viagem_aa9e28a7d7c48e9d1b1a5fd9d46eedef7} 
+vector$<$ Viagem $>$ Modelo\+Viagem\+::\+Ler\+Tudo (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Lê todas as viagens do usuário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$\+Viagem$>$ Vetor contendo as viagens do usuário. 
+\end{DoxyReturn}
+\Hypertarget{class_modelo_viagem_abcdc9f7d0dc29b407a54247f6341be9d}\index{ModeloViagem@{ModeloViagem}!ListaAtividades@{ListaAtividades}}
+\index{ListaAtividades@{ListaAtividades}!ModeloViagem@{ModeloViagem}}
+\doxysubsubsection{\texorpdfstring{ListaAtividades()}{ListaAtividades()}}
+{\footnotesize\ttfamily \label{class_modelo_viagem_abcdc9f7d0dc29b407a54247f6341be9d} 
+vector$<$ Atividade $>$ Modelo\+Viagem\+::\+Lista\+Atividades (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Destino}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Lista as atividades de um destino. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Destino} & Código do destino. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$\+Atividade$>$ Vetor contendo as atividades do destino. 
+\end{DoxyReturn}
+\Hypertarget{class_modelo_viagem_ab307f5824466c99d3b41b4d00f655e05}\index{ModeloViagem@{ModeloViagem}!ListaDestinos@{ListaDestinos}}
+\index{ListaDestinos@{ListaDestinos}!ModeloViagem@{ModeloViagem}}
+\doxysubsubsection{\texorpdfstring{ListaDestinos()}{ListaDestinos()}}
+{\footnotesize\ttfamily \label{class_modelo_viagem_ab307f5824466c99d3b41b4d00f655e05} 
+vector$<$ Destino $>$ Modelo\+Viagem\+::\+Lista\+Destinos (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Viagem}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Lista os destinos de uma viagem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Viagem} & Código da viagem. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$\+Destino$>$ Vetor contendo os destinos da viagem. 
+\end{DoxyReturn}
+\Hypertarget{class_modelo_viagem_afadb0865ec121431f5c5ac77c6c0fda6}\index{ModeloViagem@{ModeloViagem}!ListaHospedagems@{ListaHospedagems}}
+\index{ListaHospedagems@{ListaHospedagems}!ModeloViagem@{ModeloViagem}}
+\doxysubsubsection{\texorpdfstring{ListaHospedagems()}{ListaHospedagems()}}
+{\footnotesize\ttfamily \label{class_modelo_viagem_afadb0865ec121431f5c5ac77c6c0fda6} 
+vector$<$ Hospedagem $>$ Modelo\+Viagem\+::\+Lista\+Hospedagems (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Destino}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Lista as hospedagens de um destino. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Destino} & Código do destino. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$\+Hospedagem$>$ Vetor contendo as hospedagens do destino. 
+\end{DoxyReturn}
+\Hypertarget{class_modelo_viagem_a4ed07d1e0f77440415ac8be1d62254a8}\index{ModeloViagem@{ModeloViagem}!Remover@{Remover}}
+\index{Remover@{Remover}!ModeloViagem@{ModeloViagem}}
+\doxysubsubsection{\texorpdfstring{Remover()}{Remover()}}
+{\footnotesize\ttfamily \label{class_modelo_viagem_a4ed07d1e0f77440415ac8be1d62254a8} 
+void Modelo\+Viagem\+::\+Remover (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Viagem}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Remove uma viagem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Viagem} & Código da viagem a ser removida. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Viagem.\+hpp\end{DoxyCompactItemize}

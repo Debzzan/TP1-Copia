@@ -1,0 +1,44 @@
+\doxysection{Modelo.\+hpp}
+\hypertarget{_modelo_8hpp_source}{}\label{_modelo_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ MODELO\_INTERFACE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ MODELO\_INTERFACE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ <sqlite3.h>}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ <bits/stdc++.h>}}
+\DoxyCodeLine{00006\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{00007\ }
+\DoxyCodeLine{00014\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_modelo}{Modelo}}}
+\DoxyCodeLine{00015\ \{}
+\DoxyCodeLine{00016\ \textcolor{keyword}{private}:}
+\DoxyCodeLine{00020\ \ \ \ \ \textcolor{keywordtype}{void}\ CriarTableConta();}
+\DoxyCodeLine{00021\ }
+\DoxyCodeLine{00025\ \ \ \ \ \textcolor{keywordtype}{void}\ CriarTableViagem();}
+\DoxyCodeLine{00026\ }
+\DoxyCodeLine{00030\ \ \ \ \ \textcolor{keywordtype}{void}\ CriarTableDestino();}
+\DoxyCodeLine{00031\ }
+\DoxyCodeLine{00035\ \ \ \ \ \textcolor{keywordtype}{void}\ CriarTableAtividade();}
+\DoxyCodeLine{00036\ }
+\DoxyCodeLine{00040\ \ \ \ \ \textcolor{keywordtype}{void}\ CriarTableHospedagem();}
+\DoxyCodeLine{00041\ }
+\DoxyCodeLine{00050\ \ \ \ \ \textcolor{keyword}{static}\ \textcolor{keywordtype}{int}\ callback(\textcolor{keywordtype}{void}\ *notUsed,\ \textcolor{keywordtype}{int}\ argc,\ \textcolor{keywordtype}{char}\ **argv,\ \textcolor{keywordtype}{char}\ **azColName);}
+\DoxyCodeLine{00051\ }
+\DoxyCodeLine{00052\ \textcolor{keyword}{protected}:}
+\DoxyCodeLine{00053\ \ \ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_modelo_ab01bddf5c5bbb7f2b4b944977a8c105c}{status}};\ }
+\DoxyCodeLine{00054\ \ \ \ \ \textcolor{keyword}{static}\ vector<map<string,\ string>>\ \mbox{\hyperlink{class_modelo_a9255e352eabcf6e7597cd1949c7ddc01}{results}};\ }
+\DoxyCodeLine{00055\ \ \ \ \ \textcolor{keywordtype}{string}\ \mbox{\hyperlink{class_modelo_a8f2c5b3e1e3c59bdbde3d1abc24e3bf8}{ComandoSQL}};\ }
+\DoxyCodeLine{00056\ \ \ \ \ sqlite3\ *\mbox{\hyperlink{class_modelo_a2af05ad9b0db5d58d83605a7d9990ace}{db}};\ }
+\DoxyCodeLine{00057\ }
+\DoxyCodeLine{00058\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00062\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_modelo_aaf8fc35318dede97fda25d809454c184}{CriarTables}}();}
+\DoxyCodeLine{00063\ }
+\DoxyCodeLine{00067\ \ \ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_modelo_a36b013d0eaef44b2230d3fbbbcec8f66}{Executar}}();}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00072\ \ \ \ \ \mbox{\hyperlink{class_modelo_ae795d5aac02167b53f73ed4e585f7b77}{Modelo}}();}
+\DoxyCodeLine{00073\ }
+\DoxyCodeLine{00077\ \ \ \ \ \textcolor{keyword}{virtual}\ \mbox{\hyperlink{class_modelo_aefdca3cd30e941546042515df53e48f9}{\string~Modelo}}();}
+\DoxyCodeLine{00078\ \};}
+\DoxyCodeLine{00079\ }
+\DoxyCodeLine{00080\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

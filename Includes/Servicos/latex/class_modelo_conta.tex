@@ -1,0 +1,103 @@
+\doxysection{Modelo\+Conta Class Reference}
+\hypertarget{class_modelo_conta}{}\label{class_modelo_conta}\index{ModeloConta@{ModeloConta}}
+
+
+Classe que implementa a interface de serviço de conta.  
+
+
+
+
+{\ttfamily \#include $<$Conta.\+hpp$>$}
+
+Inheritance diagram for Modelo\+Conta\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_modelo_conta}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{class_modelo_conta_a1d9dbd9161d8ce55bef0cb43e24b8b41}{Autenticar}} (Codigo \&Codigo\+Usuario, Senha \&Senha\+Usuario) override
+\begin{DoxyCompactList}\small\item\em Autentica um usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_modelo_conta_ae540a79eb7beff6d574305f62f09bc67}{Criar}} (Codigo \&Codigo\+Usuario, Senha \&Senha\+Usuario) override
+\begin{DoxyCompactList}\small\item\em Cria uma nova conta de usuário. \end{DoxyCompactList}\item 
+\Hypertarget{class_modelo_conta_aef573e2787f60da54a1898e4db14adae}\label{class_modelo_conta_aef573e2787f60da54a1898e4db14adae} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Modelo\+Conta} () override
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_modelo_conta}{Modelo\+Conta}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Criar\+Tables} ()
+\begin{DoxyCompactList}\small\item\em Cria todas as tabelas no banco de dados. \end{DoxyCompactList}\item 
+void {\bfseries Executar} ()
+\begin{DoxyCompactList}\small\item\em Executa o comando SQL armazenado em Comando\+SQL. \end{DoxyCompactList}\item 
+{\bfseries Modelo} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_modelo}{Modelo}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Modelo} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_modelo}{Modelo}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries status}
+\begin{DoxyCompactList}\small\item\em Status da execução do comando SQL. \end{DoxyCompactList}\item 
+string {\bfseries Comando\+SQL}
+\begin{DoxyCompactList}\small\item\em Comando SQL a ser executado. \end{DoxyCompactList}\item 
+sqlite3 \texorpdfstring{$\ast$}{*} {\bfseries db}
+\begin{DoxyCompactList}\small\item\em Ponteiro para o banco de dados SQLite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+static vector$<$ map$<$ string, string $>$ $>$ {\bfseries results}
+\begin{DoxyCompactList}\small\item\em Resultados das consultas SQL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que implementa a interface de serviço de conta. 
+
+Esta classe herda de Interface\+Servico\+Conta e \doxylink{class_modelo}{Modelo}, e implementa os métodos para autenticar e criar contas de usuário. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_modelo_conta_a1d9dbd9161d8ce55bef0cb43e24b8b41}\index{ModeloConta@{ModeloConta}!Autenticar@{Autenticar}}
+\index{Autenticar@{Autenticar}!ModeloConta@{ModeloConta}}
+\doxysubsubsection{\texorpdfstring{Autenticar()}{Autenticar()}}
+{\footnotesize\ttfamily \label{class_modelo_conta_a1d9dbd9161d8ce55bef0cb43e24b8b41} 
+bool Modelo\+Conta\+::\+Autenticar (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Senha \&}]{Senha\+Usuario}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Autentica um usuário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Senha\+Usuario} & Senha do usuário. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool Verdadeiro se a autenticação for bem-\/sucedida, falso caso contrário. 
+\end{DoxyReturn}
+\Hypertarget{class_modelo_conta_ae540a79eb7beff6d574305f62f09bc67}\index{ModeloConta@{ModeloConta}!Criar@{Criar}}
+\index{Criar@{Criar}!ModeloConta@{ModeloConta}}
+\doxysubsubsection{\texorpdfstring{Criar()}{Criar()}}
+{\footnotesize\ttfamily \label{class_modelo_conta_ae540a79eb7beff6d574305f62f09bc67} 
+void Modelo\+Conta\+::\+Criar (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Senha \&}]{Senha\+Usuario}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Cria uma nova conta de usuário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Senha\+Usuario} & Senha do usuário. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Conta.\+hpp\end{DoxyCompactItemize}

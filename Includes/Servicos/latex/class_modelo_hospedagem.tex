@@ -1,0 +1,143 @@
+\doxysection{Modelo\+Hospedagem Class Reference}
+\hypertarget{class_modelo_hospedagem}{}\label{class_modelo_hospedagem}\index{ModeloHospedagem@{ModeloHospedagem}}
+
+
+Classe que implementa a interface de serviço de hospedagem.  
+
+
+
+
+{\ttfamily \#include $<$Hospedagem.\+hpp$>$}
+
+Inheritance diagram for Modelo\+Hospedagem\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_modelo_hospedagem}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_modelo_hospedagem_a04cac0009e3af42da5528521eb94a3f4}{Criar}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Destino\+Hospedagem, Hospedagem \&Nova\+Hospedagem) override
+\begin{DoxyCompactList}\small\item\em Cria uma nova hospedagem. \end{DoxyCompactList}\item 
+vector$<$ Hospedagem $>$ \mbox{\hyperlink{class_modelo_hospedagem_a7bd1488d6b1526d14c340e8fea0e3897}{Ler}} (Codigo \&Codigo\+Usuario) override
+\begin{DoxyCompactList}\small\item\em Lê todas as hospedagens do usuário. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_modelo_hospedagem_a85a5c7c3ae93ba5de70128498e89112c}{Atualizar}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Hospedagem, Hospedagem \&Hospedagem\+Atualizada) override
+\begin{DoxyCompactList}\small\item\em Atualiza uma hospedagem existente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_modelo_hospedagem_a2cb20b943afee4c6ed9f0881035badae}{Remover}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Hospedagem) override
+\begin{DoxyCompactList}\small\item\em Remove uma hospedagem. \end{DoxyCompactList}\item 
+\Hypertarget{class_modelo_hospedagem_aa6ccdcdeb66f1acc9afebf281d9f8f44}\label{class_modelo_hospedagem_aa6ccdcdeb66f1acc9afebf281d9f8f44} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Modelo\+Hospedagem} () override
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_modelo_hospedagem}{Modelo\+Hospedagem}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Criar\+Tables} ()
+\begin{DoxyCompactList}\small\item\em Cria todas as tabelas no banco de dados. \end{DoxyCompactList}\item 
+void {\bfseries Executar} ()
+\begin{DoxyCompactList}\small\item\em Executa o comando SQL armazenado em Comando\+SQL. \end{DoxyCompactList}\item 
+{\bfseries Modelo} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_modelo}{Modelo}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Modelo} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_modelo}{Modelo}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries status}
+\begin{DoxyCompactList}\small\item\em Status da execução do comando SQL. \end{DoxyCompactList}\item 
+string {\bfseries Comando\+SQL}
+\begin{DoxyCompactList}\small\item\em Comando SQL a ser executado. \end{DoxyCompactList}\item 
+sqlite3 \texorpdfstring{$\ast$}{*} {\bfseries db}
+\begin{DoxyCompactList}\small\item\em Ponteiro para o banco de dados SQLite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+static vector$<$ map$<$ string, string $>$ $>$ {\bfseries results}
+\begin{DoxyCompactList}\small\item\em Resultados das consultas SQL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que implementa a interface de serviço de hospedagem. 
+
+Esta classe herda de Interface\+Servico\+Hospedagem e \doxylink{class_modelo}{Modelo}, e implementa os métodos para criar, ler, atualizar e remover hospedagens. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_modelo_hospedagem_a85a5c7c3ae93ba5de70128498e89112c}\index{ModeloHospedagem@{ModeloHospedagem}!Atualizar@{Atualizar}}
+\index{Atualizar@{Atualizar}!ModeloHospedagem@{ModeloHospedagem}}
+\doxysubsubsection{\texorpdfstring{Atualizar()}{Atualizar()}}
+{\footnotesize\ttfamily \label{class_modelo_hospedagem_a85a5c7c3ae93ba5de70128498e89112c} 
+void Modelo\+Hospedagem\+::\+Atualizar (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Hospedagem}{, }\item[{Hospedagem \&}]{Hospedagem\+Atualizada}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Atualiza uma hospedagem existente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Hospedagem} & Código da hospedagem a ser atualizada. \\
+\hline
+{\em Hospedagem\+Atualizada} & Hospedagem atualizada. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_modelo_hospedagem_a04cac0009e3af42da5528521eb94a3f4}\index{ModeloHospedagem@{ModeloHospedagem}!Criar@{Criar}}
+\index{Criar@{Criar}!ModeloHospedagem@{ModeloHospedagem}}
+\doxysubsubsection{\texorpdfstring{Criar()}{Criar()}}
+{\footnotesize\ttfamily \label{class_modelo_hospedagem_a04cac0009e3af42da5528521eb94a3f4} 
+void Modelo\+Hospedagem\+::\+Criar (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Destino\+Hospedagem}{, }\item[{Hospedagem \&}]{Nova\+Hospedagem}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Cria uma nova hospedagem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Destino\+Hospedagem} & Código do destino da hospedagem. \\
+\hline
+{\em Nova\+Hospedagem} & Nova hospedagem a ser criada. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_modelo_hospedagem_a7bd1488d6b1526d14c340e8fea0e3897}\index{ModeloHospedagem@{ModeloHospedagem}!Ler@{Ler}}
+\index{Ler@{Ler}!ModeloHospedagem@{ModeloHospedagem}}
+\doxysubsubsection{\texorpdfstring{Ler()}{Ler()}}
+{\footnotesize\ttfamily \label{class_modelo_hospedagem_a7bd1488d6b1526d14c340e8fea0e3897} 
+vector$<$ Hospedagem $>$ Modelo\+Hospedagem\+::\+Ler (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Lê todas as hospedagens do usuário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$\+Hospedagem$>$ Vetor contendo as hospedagens do usuário. 
+\end{DoxyReturn}
+\Hypertarget{class_modelo_hospedagem_a2cb20b943afee4c6ed9f0881035badae}\index{ModeloHospedagem@{ModeloHospedagem}!Remover@{Remover}}
+\index{Remover@{Remover}!ModeloHospedagem@{ModeloHospedagem}}
+\doxysubsubsection{\texorpdfstring{Remover()}{Remover()}}
+{\footnotesize\ttfamily \label{class_modelo_hospedagem_a2cb20b943afee4c6ed9f0881035badae} 
+void Modelo\+Hospedagem\+::\+Remover (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Hospedagem}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Remove uma hospedagem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Hospedagem} & Código da hospedagem a ser removida. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Hospedagem.\+hpp\end{DoxyCompactItemize}

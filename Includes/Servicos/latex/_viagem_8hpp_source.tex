@@ -1,0 +1,36 @@
+\doxysection{Viagem.\+hpp}
+\hypertarget{_viagem_8hpp_source}{}\label{_viagem_8hpp_source}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{00001\ \textcolor{preprocessor}{\#ifndef\ TRAVEL\_SERVICE\_HPP}}
+\DoxyCodeLine{00002\ \textcolor{preprocessor}{\#define\ TRAVEL\_SERVICE\_HPP}}
+\DoxyCodeLine{00003\ }
+\DoxyCodeLine{00004\ \textcolor{preprocessor}{\#include\ "{}./Modelo.hpp"{}}}
+\DoxyCodeLine{00005\ \textcolor{preprocessor}{\#include\ "{}../Interfaces/Servicos.hpp"{}}}
+\DoxyCodeLine{00006\ }
+\DoxyCodeLine{00013\ \textcolor{keyword}{class\ }\mbox{\hyperlink{class_modelo_viagem}{ModeloViagem}}\ :\ \textcolor{keyword}{public}\ InterfaceServicoViagem,\ \textcolor{keyword}{public}\ \mbox{\hyperlink{class_modelo}{Modelo}}}
+\DoxyCodeLine{00014\ \{}
+\DoxyCodeLine{00015\ \textcolor{keyword}{public}:}
+\DoxyCodeLine{00021\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_modelo_viagem_a8f91e4cb77935e46af60a9ec133c1536}{Criar}}(Codigo\ \&CodigoUsuario,\ Viagem\ \&NovaViagem)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00022\ }
+\DoxyCodeLine{00029\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_modelo_viagem_a04111c16925294ef618c506568c803b9}{Atualizar}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoViagem,\ Viagem\ \&ViagemAtualizada)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00030\ }
+\DoxyCodeLine{00036\ \ \ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{class_modelo_viagem_a4ed07d1e0f77440415ac8be1d62254a8}{Remover}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoViagem)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00037\ }
+\DoxyCodeLine{00043\ \ \ vector<Viagem>\ \mbox{\hyperlink{class_modelo_viagem_aa9e28a7d7c48e9d1b1a5fd9d46eedef7}{LerTudo}}(Codigo\ \&CodigoUsuario)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00044\ }
+\DoxyCodeLine{00051\ \ \ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{class_modelo_viagem_abd29134c8dd74af38a84bd46aafb0b48}{ConsultaCusto}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoViagem)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00052\ }
+\DoxyCodeLine{00059\ \ \ vector<Destino>\ \mbox{\hyperlink{class_modelo_viagem_ab307f5824466c99d3b41b4d00f655e05}{ListaDestinos}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoViagem)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00060\ }
+\DoxyCodeLine{00067\ \ \ Destino\ \mbox{\hyperlink{class_modelo_viagem_a526ae026655e3bf0a8bd49a9f22701cc}{ConsultaDestino}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoDestino)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00068\ }
+\DoxyCodeLine{00075\ \ \ vector<Hospedagem>\ \mbox{\hyperlink{class_modelo_viagem_afadb0865ec121431f5c5ac77c6c0fda6}{ListaHospedagems}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoDestino)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00076\ }
+\DoxyCodeLine{00083\ \ \ vector<Atividade>\ \mbox{\hyperlink{class_modelo_viagem_abcdc9f7d0dc29b407a54247f6341be9d}{ListaAtividades}}(Codigo\ \&CodigoUsuario,\ Codigo\ \&CodigoDestino)\ \textcolor{keyword}{override};}
+\DoxyCodeLine{00084\ }
+\DoxyCodeLine{00088\ \ \ \mbox{\hyperlink{class_modelo_viagem_a905116bd1b6d41b66d5bb73d72b84686}{\string~ModeloViagem}}()\textcolor{keyword}{\ override\ }\{\};}
+\DoxyCodeLine{00089\ \};}
+\DoxyCodeLine{00090\ }
+\DoxyCodeLine{00091\ \textcolor{preprocessor}{\#endif}}
+
+\end{DoxyCode}

@@ -1,0 +1,143 @@
+\doxysection{Modelo\+Destino Class Reference}
+\hypertarget{class_modelo_destino}{}\label{class_modelo_destino}\index{ModeloDestino@{ModeloDestino}}
+
+
+Classe que implementa a interface de serviço de destino.  
+
+
+
+
+{\ttfamily \#include $<$Destino.\+hpp$>$}
+
+Inheritance diagram for Modelo\+Destino\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_modelo_destino}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_modelo_destino_af62239bb55a6db110e4893fd0fedc189}{Criar}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Destino\+Viagem, Destino \&Novo\+Destino) override
+\begin{DoxyCompactList}\small\item\em Cria um novo destino. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_modelo_destino_a0a1fe83cb0b29289088e9b64f502ff87}{Atualizar}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Destino, Destino \&Destino\+Atualizado) override
+\begin{DoxyCompactList}\small\item\em Atualiza um destino existente. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_modelo_destino_a3a0e56ea1ebe00be9d962371f3b7e211}{Remover}} (Codigo \&Codigo\+Usuario, Codigo \&Codigo\+Destino) override
+\begin{DoxyCompactList}\small\item\em Remove um destino. \end{DoxyCompactList}\item 
+vector$<$ Destino $>$ \mbox{\hyperlink{class_modelo_destino_ab7db15d98b5865cfe9a87cb93f90cb38}{Ler}} (Codigo \&Codigo\+Usuario) override
+\begin{DoxyCompactList}\small\item\em Lê todos os destinos do usuário. \end{DoxyCompactList}\item 
+\Hypertarget{class_modelo_destino_aab391800d49db66bcf68a43219a53244}\label{class_modelo_destino_aab391800d49db66bcf68a43219a53244} 
+{\bfseries \texorpdfstring{$\sim$}{\string~}\+Modelo\+Destino} () override
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_modelo_destino}{Modelo\+Destino}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+void {\bfseries Criar\+Tables} ()
+\begin{DoxyCompactList}\small\item\em Cria todas as tabelas no banco de dados. \end{DoxyCompactList}\item 
+void {\bfseries Executar} ()
+\begin{DoxyCompactList}\small\item\em Executa o comando SQL armazenado em Comando\+SQL. \end{DoxyCompactList}\item 
+{\bfseries Modelo} ()
+\begin{DoxyCompactList}\small\item\em Construtor da classe \doxylink{class_modelo}{Modelo}. \end{DoxyCompactList}\item 
+virtual {\bfseries \texorpdfstring{$\sim$}{\string~}\+Modelo} ()
+\begin{DoxyCompactList}\small\item\em Destrutor da classe \doxylink{class_modelo}{Modelo}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Additional Inherited Members}
+\doxysubsection*{Protected Attributes inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+int {\bfseries status}
+\begin{DoxyCompactList}\small\item\em Status da execução do comando SQL. \end{DoxyCompactList}\item 
+string {\bfseries Comando\+SQL}
+\begin{DoxyCompactList}\small\item\em Comando SQL a ser executado. \end{DoxyCompactList}\item 
+sqlite3 \texorpdfstring{$\ast$}{*} {\bfseries db}
+\begin{DoxyCompactList}\small\item\em Ponteiro para o banco de dados SQLite. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes inherited from \mbox{\hyperlink{class_modelo}{Modelo}}}
+\begin{DoxyCompactItemize}
+\item 
+static vector$<$ map$<$ string, string $>$ $>$ {\bfseries results}
+\begin{DoxyCompactList}\small\item\em Resultados das consultas SQL. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Classe que implementa a interface de serviço de destino. 
+
+Esta classe herda de Interface\+Servico\+Destino e \doxylink{class_modelo}{Modelo}, e implementa os métodos para criar, ler, atualizar e remover destinos. 
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_modelo_destino_a0a1fe83cb0b29289088e9b64f502ff87}\index{ModeloDestino@{ModeloDestino}!Atualizar@{Atualizar}}
+\index{Atualizar@{Atualizar}!ModeloDestino@{ModeloDestino}}
+\doxysubsubsection{\texorpdfstring{Atualizar()}{Atualizar()}}
+{\footnotesize\ttfamily \label{class_modelo_destino_a0a1fe83cb0b29289088e9b64f502ff87} 
+void Modelo\+Destino\+::\+Atualizar (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Destino}{, }\item[{Destino \&}]{Destino\+Atualizado}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Atualiza um destino existente. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Destino} & Código do destino a ser atualizado. \\
+\hline
+{\em Destino\+Atualizado} & Destino atualizado. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_modelo_destino_af62239bb55a6db110e4893fd0fedc189}\index{ModeloDestino@{ModeloDestino}!Criar@{Criar}}
+\index{Criar@{Criar}!ModeloDestino@{ModeloDestino}}
+\doxysubsubsection{\texorpdfstring{Criar()}{Criar()}}
+{\footnotesize\ttfamily \label{class_modelo_destino_af62239bb55a6db110e4893fd0fedc189} 
+void Modelo\+Destino\+::\+Criar (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Destino\+Viagem}{, }\item[{Destino \&}]{Novo\+Destino}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Cria um novo destino. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Destino\+Viagem} & Código da viagem do destino. \\
+\hline
+{\em Novo\+Destino} & Novo destino a ser criado. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{class_modelo_destino_ab7db15d98b5865cfe9a87cb93f90cb38}\index{ModeloDestino@{ModeloDestino}!Ler@{Ler}}
+\index{Ler@{Ler}!ModeloDestino@{ModeloDestino}}
+\doxysubsubsection{\texorpdfstring{Ler()}{Ler()}}
+{\footnotesize\ttfamily \label{class_modelo_destino_ab7db15d98b5865cfe9a87cb93f90cb38} 
+vector$<$ Destino $>$ Modelo\+Destino\+::\+Ler (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Lê todos os destinos do usuário. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+vector$<$\+Destino$>$ Vetor contendo os destinos do usuário. 
+\end{DoxyReturn}
+\Hypertarget{class_modelo_destino_a3a0e56ea1ebe00be9d962371f3b7e211}\index{ModeloDestino@{ModeloDestino}!Remover@{Remover}}
+\index{Remover@{Remover}!ModeloDestino@{ModeloDestino}}
+\doxysubsubsection{\texorpdfstring{Remover()}{Remover()}}
+{\footnotesize\ttfamily \label{class_modelo_destino_a3a0e56ea1ebe00be9d962371f3b7e211} 
+void Modelo\+Destino\+::\+Remover (\begin{DoxyParamCaption}\item[{Codigo \&}]{Codigo\+Usuario}{, }\item[{Codigo \&}]{Codigo\+Destino}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [override]}}
+
+
+
+Remove um destino. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em Codigo\+Usuario} & Código do usuário. \\
+\hline
+{\em Codigo\+Destino} & Código do destino a ser removido. \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Destino.\+hpp\end{DoxyCompactItemize}
