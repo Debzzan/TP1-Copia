@@ -47,6 +47,10 @@ public:
      */
     void Sair();
 
+    void Ler(Codigo &CodigoUsuario);
+
+    void Ler(Codigo &CodigoUsuario);
+
     /**
      * @brief Método para executar operações no ambiente de conta.
      * @param CodigoUsuario Código do usuário.

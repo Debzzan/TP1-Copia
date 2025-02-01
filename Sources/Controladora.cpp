@@ -53,7 +53,7 @@ void Controladora::Executar()
         cout << "3 - Ambiente Destinos" << endl;
         cout << "4 - Ambiente Hospedagens" << endl;
         cout << "5 - Ambiente Atividades" << endl;
-        cout << "6 - Sair" << endl;
+        cout << "6 - Sair do APP" << endl;
         cout << "Escolha uma das opções (1 a 6): ";
         string option;
         cin >> option;
@@ -70,8 +70,15 @@ void Controladora::Executar()
             this->AmbienteHospedagem->Executar(this->CodigoUsuario);
         else if (option == "5")
             this->AmbienteAtividade->Executar(this->CodigoUsuario);
-        else
+        else if (option == "6")
           break;
+        else
+        {
+          cout << "Opção inválida" << endl;
+          cout << "Pressione qualquer tecla para continuar...";
+          cin.ignore();
+          cin.get();
+        }
       }
       else
       {
@@ -85,9 +92,14 @@ void Controladora::Executar()
         if (option == 1)
 
             this->AmbienteConta->Executar(this->CodigoUsuario);
+        else if (option == 2)
+          break;
         else
         {
-          return;
+          cout << "Opção inválida" << endl;
+          cout << "Pressione qualquer tecla para continuar...";
+          cin.ignore();
+          cin.get();
         }
       }
 
